@@ -9,7 +9,7 @@
 <body>
 <a href="../index.html">principal</a>
 <br>
-<a href="login.php">ya tengo una cuenta</a>
+<a href="login.html">ya tengo una cuenta</a>
 <form action="guardar.php" method="post">
 <label>nombre de usuario</label>
 <input type="text" name="usuario" id="usuario"><div id="loader"><img src="../imagenes/cargando.gif" alt="Cargando"></div>
@@ -24,8 +24,11 @@
 <label>email</label>
 <input type="email" name="mail" id="mail">
 <br>
-<input id="enviar" type="submit" value="Crear Usuario"/>
+    <input id="enviar" type="submit" value="Crear usuario">
 <input type="reset" value="Borrar"/>
+    <div id="loader2"><img src="../imagenes/cargando.gif" alt="Cargando"></div>
+    <div id="resultadoAnadir"></div>
+    <br>
 </form>
 </body>
 </html>

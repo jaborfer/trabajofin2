@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="../js/login.js"></script>
+</head>
+<body>
+<a href="../index.html">principal</a>
+<br>
+<a href="crear.html">Quiero crear una cuenta</a>
+<form action="login.php" method="post">
+    <label>nombre de usuario</label>
+    <input type="text" name="usuario" id="usuario">
+    <br>
+    <label>password</label>
+    <input type="password" name="pass1" id="pass1">
+    <br>
+    <input id="enviar" type="submit" value="entrar">
+    <input type="reset" value="Borrar"/>
+    <div id="loader2"><img src="../imagenes/cargando.gif" alt="Cargando"></div>
+    <div id="resultadologin"></div>
+    <br>
+</form>
+</body>
+</html>
