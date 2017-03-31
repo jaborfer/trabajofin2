@@ -3,7 +3,10 @@ require_once 'BBDD.php';
 
 $nombre=$_POST['usuario'];
 $respuesta=NULL;
-$respuesta= BBDD::existe("cuidador", "usuario", $nombre);
+$dato=[
+    'usuario'=>$nombre,
+];
+$respuesta= BBDD::existe("cuidador", $dato);
 
 if (is_null($respuesta)){
     echo("valido");

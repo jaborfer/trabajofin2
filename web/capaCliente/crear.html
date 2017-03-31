@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-<script type="text/javascript" src="../js/jquery-3.2.0.min.js"></script>
-    <script type="text/javascript" src="../js/crear.js"></script>
+<script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="js/crear.js"></script>
 </head>
 <body>
-<a href="../index.html">principal</a>
+<a href="../index.php">principal</a>
 <br>
 <a href="login.html">ya tengo una cuenta</a>
-<form action="guardar.php" method="post">
+<form action="../capaServer/guardar.php" method="post">
 <label>nombre de usuario</label>
-<input type="text" name="usuario" id="usuario"><div id="loader"><img src="../imagenes/cargando.gif" alt="Cargando"></div>
+<input type="text" name="usuario" id="usuario"><div id="loader"><img src="imagenes/cargando.gif" alt="Cargando"></div>
 <div id="resultadoBuscar"></div>
     <br>
 <label>password</label>
@@ -26,7 +26,7 @@
 <br>
     <input id="enviar" type="submit" value="Crear usuario">
 <input type="reset" value="Borrar"/>
-    <div id="loader2"><img src="../imagenes/cargando.gif" alt="Cargando"></div>
+    <div id="loader2"><img src="imagenes/cargando.gif" alt="Cargando"></div>
     <div id="resultadoAnadir"></div>
     <br>
 </form>

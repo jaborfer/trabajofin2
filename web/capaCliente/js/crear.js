@@ -46,7 +46,7 @@ $(document).ready(function () {
         envio = {"usuario": valorUsuario};
 
         $.ajax({
-            url: "comprobar.php"
+            url: "../capaServer/comprobar.php"
             , async: true
             , type: 'post'
             , data: envio

@@ -11,8 +11,8 @@ $_SESSION['recuerdame']=$prueba;
 
 
 if (!isset($_SESSION['recuerdame'])||$_SESSION['recuerdame']['autojuego']=="no") {
-  header('Location: principal.html');
+  header('Location: ./capaCliente/principal.html');
 } else {
-  header('Location: juego.html');;
+  header('Location: ./capaCliente/juego.html');;
 }
 ?>
