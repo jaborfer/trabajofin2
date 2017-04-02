@@ -1,49 +1,38 @@
 /**
- * Created by jabor on 24/03/2017.
+ * Created by jabor on 02/04/2017.
  */
 $(document).ready(function () {
-    var $loader = $("#loader");
-    var $loader2 = $("#loader2");
-    var $enviar = $("#enviar");
-    var $usuario = $("#usuario");
-    var $mail = $("#mail");
-    var $pass1 = $("#pass1");
-    var $pass2 = $("#pass2");
-    var $respuesta = $("#resultadoBuscar");
-    var $resanadir = $("#resultadoAnadir");
-    var ok;
-    var envio;
+    $jugador=$("#jugador");
+   $loader=$("#loader");
+    $loader2=$("#loader2");
+   $notas=$("#notas");
+   $respuesta=$("#resultadoBuscar");
+   $enviar=$("#enviar");
+   $edad=$("#edad");
+   $enfermedad=$("#enfermedad");
+   $resanadir=$("#resultadoAnadir");
+   chknombre=false;
     $loader.toggle("fast");
     $loader2.toggle("fast");
-    $enviar.attr("disabled", "true");
-    var correcto = false;
-    var chknombre = false
-            , chkmail = false
-            , chkpass = false;
-    $mail.blur(function () {
-        chkmail = ($mail.val().length > 5);
-        comprueba();
-    });
-    $("input:password").keyup(function () {
-
-        chkpass = (($pass1.val() == $pass2.val()) && $pass1.val().length > 5);
-
-        comprueba()
-    });
-
-    function comprueba() {
-        console.log("comprobando "+ chknombre);
-        $("#enviar").attr("disabled", !((chkmail && chknombre) && chkpass));
-    }
-    $usuario.focus(function (){
-        $respuesta.empty();
-    })
-    $usuario.blur(function () {
-
+   $enviar.attr("disabled",true);
+   $notas.focus(function () {
+       $notas.text("");
+   });
+   $notas.keyup(function () {
+       if ($notas.text()==""){$notas.text("Notas personales sobre el jugador . . .");}
+       comprueba();
+   });
+   $edad.blur(function () {
+       comprueba();
+   })
+   $enfermedad.keyup(function () {
+       comprueba();
+   })
+    $jugador.blur(function () {
 
         $loader.toggle("fast");
-        var valorUsuario= $("#usuario").val();
-        envio = {"usuario": valorUsuario};
+        var valorJugador= $("#jugador").val();
+        envio = {"jugador": valorJugador};
 
         $.ajax({
             url: "../capaServer/comprobar.php"
@@ -55,11 +44,11 @@ $(document).ready(function () {
 
                 if (ok=="valido") {
                     console.log("valido");
-                    $respuesta.empty().append("Usuario disponible");
+                    $respuesta.empty().append("Nombre disponible");
                     chknombre = true;
                 } else if (ok=="invalido") {
                     console.log("invalido");
-                    $respuesta.empty().append("Usuario usado, elija otro");
+                    $respuesta.empty().append("Nombre usado, elija otro");
                     chknombre = false;
                 } else {
                     $respuesta.empty().append("Error");
@@ -88,10 +77,8 @@ $(document).ready(function () {
             , timeout: 2000
             , success: function ($respuesta) {
                 if($respuesta=="ok"){
-                    $resanadir.empty().append("Usuario creado correctamente entrando en el panel de control");
-                    timer = setTimeout(function () {
-                        $(location).attr('href',"panelcontrol.html");
-                    }, 3000);
+                    $resanadir.empty().append("Jugador creado correctamente");
+
                 } else {
                     $resanadir.empty().append($respuesta);
                 }
@@ -106,4 +93,13 @@ $(document).ready(function () {
         });
         return false;
     });
+function comprueba() {
+
+    if (chknombre && ($enfermedad.val()!="")){
+        console.log("valido");
+        $enviar.attr("disabled",false);
+    } else {
+        console.log("invalido");
+        $enviar.attr("disabled",true);}
+}
 });

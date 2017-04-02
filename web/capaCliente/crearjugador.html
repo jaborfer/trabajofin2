@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+	<script src="js/crearjugador.js"></script>
+</head>
+
+<body>
+	<form action="../capaServer/guardar.php" method="post">
+		<p>Esta información es publica y la podrá ver el jugador</p>
+		<label>nombre del jugador:</label>
+		<input type="text" name="jugador" id="jugador">
+		<div id="loader"><img src="imagenes/cargando.gif" alt="Cargando"></div>
+		<div id="resultadoBuscar"></div>
+		<br>
+		<p>Esta información es privada y solo la podrán ver los jugadores</p>
+		<label>edad:</label>
+		<input type="number" name="edad" id="edad" min="0" max="105" value="50">
+		<br>
+		<label>enfermedad:</label>
+		<input type="text" name="enfermedad" id="enfermedad">
+		<br>
+		<label>Notas privadas</label><br>
+		<textarea name="notas" id="notas" cols="30" rows="10">Notas personales sobre el jugador . . .</textarea><br>
+		<button id="enviar">Crear</button><br>
+		<input type="reset" value="Borrar"><br>
+		<div id="loader2"><img src="imagenes/cargando.gif" alt="Cargando"></div>
+		<div id="resultadoAnadir"></div>
+		<br>
+	</form>
+</body>
+
+</html>
