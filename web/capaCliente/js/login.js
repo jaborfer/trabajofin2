@@ -18,8 +18,7 @@ $(document).ready(function () {
 		$resLogin.empty();
 		$loader2.toggle("fast");
 		$.ajax({
-			url: "../capaServer/login.php" //$("form").attr("action")""
-				
+			url: "../capaServer/gestionjugadores.php"
 			, async: true
 			, type: 'post'
 			, data: $("form").serialize()
@@ -29,7 +28,7 @@ $(document).ready(function () {
 					$resLogin.empty().append("Usuario correcto");
 					var timer = setTimeout(function () {
 						$(location).attr('href', "panelcontrol.html");
-					}, 3000);
+					}, 1000);
 				}
 				else {
 					$resLogin.empty().append($respuesta);

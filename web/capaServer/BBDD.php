@@ -13,45 +13,65 @@
  */
 require '../mongodb/vendor/autoload.php';
 
-class BBDD
-{
+class BBDD{
+    private $client;
+    private $mibase;
 
-
-  /*  static function existe($coleccion, $campo, $dato)
+    public function __construct()
     {
-        $client = new MongoDB\Client;
-        $mibase = $client->recuerdaMongo;
-
-        $miColeccion = $mibase->$coleccion;
-        $respuesta = $miColeccion->findOne(
-            [$campo => $dato]
-        );
+        if(!isset($conexion)){
+            $this->client= new MongoDB\Client;
+            $this->mibase= $this->client->recuerdaMongo;
+        }
+    }
 
 
-        return ($respuesta);
-    }*/
-
-    static function existe($coleccion,  $dato)
+     function existe($coleccion,  $dato)
     {
-        $client = new MongoDB\Client;
-        $mibase = $client->recuerdaMongo;
-
-        $miColeccion = $mibase->$coleccion;
+        //$client = new MongoDB\Client;
+        //$mibase = $client->recuerdaMongo;
+        $miColeccion=$this->mibase->$coleccion;
         $respuesta = $miColeccion->findOne($dato);
 
 
         return ($respuesta);
     }
+    function busca($coleccion, $dato){
+        //$client = new MongoDB\Client;
+        //$mibase = $client->recuerdaMongo;
+        $lacoleccion = $this->mibase ->$coleccion;
+        $respuesta =$lacoleccion->find($dato);
+        return ($respuesta);
+    }
 
-    static function inserta($coleccion, $dato)
+    function inserta($coleccion, $dato)
     {
-        $client = new MongoDB\Client;
-        $mibase = $client->recuerdaMongo;
+        //$client = new MongoDB\Client;
+        //$mibase = $client->recuerdaMongo;
 
-        $miColeccion = $mibase->$coleccion;
+        $miColeccion = $this->mibase->$coleccion;
         $insertauno = $miColeccion->insertOne($dato);
         return ($insertauno->getInsertedCount());
 
+    }
+
+    function modifica($coleccion, $condicion, $modificacion){
+        //$client = new MongoDB\Client;
+        //$mibase = $client->recuerdaMongo;
+        $miColeccion = $this->mibase->$coleccion;
+        $modificacion= $miColeccion->updateOne( //aunque haya varios, solo modifica el primero
+            $condicion,
+            ['$set'=>$modificacion]);
+            return ($modificacion->getModifiedCount());
 
     }
+    function borrar($coleccion, $condicion){
+        //$client = new MongoDB\Client;
+        //$mibase = $client->recuerdaMongo;
+        $miColeccion = $this->mibase->$coleccion;
+        $borrado= $miColeccion->deleteOne($condicion);
+        return ($borrado->getDeletedCount());
+
+    }
+
 }

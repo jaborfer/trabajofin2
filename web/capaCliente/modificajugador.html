@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="js/modificarjugador.js"></script>
+
+</head>
+<body>
+<form action="../capaServer/gestionjugadores.php" method="post">
+
+    <select name="jugador" id="miselect">
+        <option value="">Seleccione el jugador</option>
+    </select>
+
+    <div id="formulario">
+
+        <input type="hidden" name="funcion" value="actualizar">
+        <p>Esta información es privada y solo la podrán ver los administradores</p>
+        <label>edad:</label>
+        <input type="number" name="edad" id="edad" min="0" max="105" value="50">
+        <br>
+        <label>enfermedad:</label>
+        <input type="text" name="enfermedad" id="enfermedad">
+        <br>
+        <label>Notas privadas</label><br>
+        <textarea name="notas" id="notas" cols="30" rows="10">Notas personales sobre el jugador . . .</textarea><br>
+        <!--<button id="enviar">Modificar</button>-->
+        <input type="submit" value="Modificar">
+        <br>
+        <input type="reset" value="Borrar"><br>
+        <div id="loader2"><img src="imagenes/cargando.gif" alt="Cargando"></div>
+        <br>
+
+
+
+    </div>
+</form>
+<div id="resactualizar"></div>
+</body>
+</html>

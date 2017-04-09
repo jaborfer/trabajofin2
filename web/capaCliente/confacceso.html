@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="js/confacceso.js"></script>
+
+</head>
+<body>
+<form action="../capaServer/gestionjugadores.php" method="post">
+    <input type="hidden" name="funcion" value="acceso">
+    <input type="radio" name="opciones" value="juegos" id="juegos"><label>Quiero que el dispositivo vaya directamente a los juegos de:</label>
+    <select name="jugador" id="miselect">
+        <option value="">Seleccione el jugador</option>
+    </select><br/><br/>
+    <input type="radio" name="opciones" value="standard" id="standard"><label>Quiero que el dispositivo no guarde información (yo me atentificaré):</label>
+    <br> <input type="submit" value="Modificar" id="enviar">
+        <br>
+        <input type="reset" value="Borrar"><br>
+        <div id="loader2"><img src="imagenes/cargando.gif" alt="Cargando"></div>
+        <br>
+
+
+
+    </div>
+</form>
+<div id="resactualizar"></div>
+</body>
+</html>

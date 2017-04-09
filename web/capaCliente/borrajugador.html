@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="js/borrajugador.js"></script>
+
+</head>
+<body>
+<form action="../capaServer/gestionjugadores.php" method="post">
+
+    <select name="jugador" id="miselect">
+        <option value="">Seleccione el jugador</option>
+    </select>
+
+    <div id="formulario">
+
+        <input type="hidden" name="funcion" value="borrar">
+
+        <label>Estoy seguro de que quiero borrar los datos y entiendo que no se podrán recuperar</label>
+        <input type="checkbox" name="entiendo" id="aceptar">
+        <br>
+        <input type="submit" value="borrar" id="botonrojo">
+        <br>
+        <div id="loader2"><img src="imagenes/cargando.gif" alt="Cargando"></div>
+        <br>
+    </div>
+</form>
+<div id="resborrar"></div>
+</body>
+</html>

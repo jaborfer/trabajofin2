@@ -18,8 +18,8 @@ $(document).ready(function () {
     $enviar.attr("disabled", "true");
     var correcto = false;
     var chknombre = false
-            , chkmail = false
-            , chkpass = false;
+        , chkmail = false
+        , chkpass = false;
     $mail.blur(function () {
         chkmail = ($mail.val().length > 5);
         comprueba();
@@ -32,32 +32,33 @@ $(document).ready(function () {
     });
 
     function comprueba() {
-        console.log("comprobando "+ chknombre);
+        console.log("comprobando " + chknombre);
         $("#enviar").attr("disabled", !((chkmail && chknombre) && chkpass));
     }
-    $usuario.focus(function (){
+
+    $usuario.focus(function () {
         $respuesta.empty();
-    })
+    });
     $usuario.blur(function () {
 
 
         $loader.toggle("fast");
-        var valorUsuario= $("#usuario").val();
-        envio = {"usuario": valorUsuario};
+        var valorUsuario = $("#usuario").val();
+        envio = {"funcion": "comprobar", "usuario": valorUsuario};
 
         $.ajax({
-            url: "../capaServer/comprobar.php"
+            url: "../capaServer/gestionjugadores.php"
             , async: true
             , type: 'post'
             , data: envio
             , timeout: 2000
             , success: function (ok) {
 
-                if (ok=="valido") {
+                if (ok == "valido") {
                     console.log("valido");
                     $respuesta.empty().append("Usuario disponible");
                     chknombre = true;
-                } else if (ok=="invalido") {
+                } else if (ok == "invalido") {
                     console.log("invalido");
                     $respuesta.empty().append("Usuario usado, elija otro");
                     chknombre = false;
@@ -87,10 +88,10 @@ $(document).ready(function () {
             , data: $("form").serialize()
             , timeout: 2000
             , success: function ($respuesta) {
-                if($respuesta=="ok"){
+                if ($respuesta == "ok") {
                     $resanadir.empty().append("Usuario creado correctamente entrando en el panel de control");
                     timer = setTimeout(function () {
-                        $(location).attr('href',"panelcontrol.html");
+                        $(location).attr('href', "panelcontrol.html");
                     }, 3000);
                 } else {
                     $resanadir.empty().append($respuesta);
