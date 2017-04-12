@@ -48,8 +48,12 @@ if (isset($_POST['funcion'])) {
                     ];
                     $comprueba = $mibase->inserta("cuidador", $dato);
                     if ($comprueba = 1) {
+                        $_SESSION['usuarioactivo'] = $nombre;
                         echo("ok");
                     } else {
+                        if (isset($_SESSION['usuarioactivo'])) {
+                            unset($_SESSION['usuarioactivo']);
+                        }
                         echo("error en la base de datos, lo estamos investigando, pruebe más tarde");
                     }
                 } else {
@@ -201,6 +205,25 @@ if (isset($_POST['funcion'])) {
                     echo ("Se produjo un error al actualizar, inténtelo más tarde");
                 }
             }//aqui va el código para borrar los usuarios
+            break;
+        case "acceso":
+            $opcion=$_POST['opciones'];
+            if ($opcion=="standard"){
+                $inicio=[
+                    "autojuego"=>"no" // esta es la banderia para que vaya directamente a jugar o a la principal
+                ];
+                $_SESSION['recuerdame']=$inicio;
+            } else if ($opcion=="juegos"){
+                $usuario=$_SESSION['usuarioactivo'];
+                $jugador=$_POST['jugador'];
+                $prueba=[
+                    "cuidador"=>$usuario,
+                    "jugador"=>$jugador,
+                    "autojuego"=>"si" // esta es la banderia para que vaya directamente a jugar o a la principal
+                ];
+
+                $_SESSION['recuerdame']=$inicio;
+            }else {echo("Error en la transmisión");}
             break;
     }
 }

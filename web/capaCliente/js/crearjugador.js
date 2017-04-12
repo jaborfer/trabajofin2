@@ -53,7 +53,7 @@ $(document).ready(function () {
                     $respuesta.empty().append("Nombre usado, elija otro");
                     chknombre = false;
                 } else {
-                    $respuesta.empty().append("Error");
+                    $respuesta.empty().append("Error "+ok);
                     chknombre = false;
                 }
             }

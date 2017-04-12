@@ -7,8 +7,10 @@
  */
 
 require_once 'vendor/autoload.php';
-$client = new MongoDB\Client;
-$recuerdaMongo = $client->recuerdaMongo;
+$uri="mongodb://recuerdameclient:mu0056as@ds157500.mlab.com:57500/recuerdame";
+
+$client = new MongoDB\Client($uri);
+$mibase = $client->recuerdame;
 $resul=$recuerdaMongo->createCollection('cuidador');
 $resul=$recuerdaMongo->createCollection('jugador'); //dentro de jugador irá un objeto con las jugadas y puntuaciones
 $resul=$recuerdaMongo->createCollection('rutina');// dentro de rutina irá un objeto con los juegos que contiene

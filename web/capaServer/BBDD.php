@@ -17,7 +17,17 @@ class BBDD{
     private $client;
     private $mibase;
 
-    public function __construct()
+  /*  public function __construct()//CONEXION PARA SERVIDOR MLAB
+    {
+        if(!isset($conexion)){
+            $uri="mongodb://recuerdameclient:mu0056as@ds157500.mlab.com:57500/recuerdame";
+
+            $this->client = new MongoDB\Client($uri);
+            $this->mibase = $this->client->recuerdame;
+        }
+    }*/
+
+    public function __construct() //CONEXION PARA LOCAL
     {
         if(!isset($conexion)){
             $this->client= new MongoDB\Client;
@@ -26,7 +36,7 @@ class BBDD{
     }
 
 
-     function existe($coleccion,  $dato)
+     function existe($coleccion, $dato)
     {
         //$client = new MongoDB\Client;
         //$mibase = $client->recuerdaMongo;

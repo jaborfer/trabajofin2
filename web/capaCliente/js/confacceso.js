@@ -46,27 +46,7 @@ $(document).ready(function () {
             }
         });
     }
-    function cargaformulario() {
-        var jugadorseleccionado=$miselect.val();
-        envio = {"funcion": "traedocumento","tipo":"jugador","jugador":jugadorseleccionado};
-        $.ajax({
-            url: "../capaServer/gestionjugadores.php"
-            , async: true
-            , type: 'post'
-            , data: envio
-            , timeout: 2000
-            , success: function (respuestajson) {
 
-                var respuesta = $.parseJSON(respuestajson);
-                $edad.val(respuesta["edad"]);
-                $enfermedad.val(respuesta["enfermedad"]);
-                $notas.val(respuesta["notas"]);
-            }
-            , error: function () {
-                $respuesta.empty().append("Error en la comunicación con el servidor");
-            }
-        });
-    }
     $("form").submit(function () {
         $resactualizar.empty();
         $loader2.toggle("fast");
@@ -79,7 +59,7 @@ $(document).ready(function () {
             , success: function ($respuesta) {
                 if ($respuesta == "ok") {
                     $formulario.hide();
-                    $resactualizar.empty().append("Usuario modificado correctamente");
+                    $resactualizar.empty().append("Acceso modificado correctamente");
 
                 } else {
                     $resactualizar.empty().append($respuesta);
