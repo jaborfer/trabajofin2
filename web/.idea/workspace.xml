@@ -18,15 +18,82 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="crearrutina.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/capaCliente/js/crearrutina.js">
+      <file leaf-file-name="borrarutina.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/capaCliente/borrarutina.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="155" column="43" lean-forward="false" selection-start-line="155" selection-start-column="43" selection-end-line="155" selection-end-column="43" />
+            <state relative-caret-position="54">
+              <caret line="6" column="51" lean-forward="true" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="asignar.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/capaCliente/asignar.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="446">
+              <caret line="23" column="11" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="borrarutina.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/capaCliente/js/borrarutina.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-206">
+              <caret line="48" column="66" lean-forward="false" selection-start-line="48" selection-start-column="66" selection-end-line="48" selection-end-column="66" />
               <folding>
-                <element signature="e#496#1773#0" expanded="false" />
-                <element signature="e#2314#3321#0" expanded="false" />
-                <element signature="e#3359#4834#0" expanded="false" />
+                <element signature="e#0#42#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="asignar.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/capaCliente/js/asignar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="106" column="41" lean-forward="false" selection-start-line="106" selection-start-column="41" selection-end-line="106" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listaJuegos.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mongodb/listaJuegos.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="20" column="19" lean-forward="true" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="modificarutina.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/capaCliente/js/modificarutina.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1452">
+              <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gestionjugadores.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/capaServer/gestionjugadores.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="314">
+              <caret line="245" column="24" lean-forward="false" selection-start-line="245" selection-start-column="24" selection-end-line="245" selection-end-column="24" />
+              <folding>
+                <element signature="e#472#1284#0#PHP" expanded="false" />
+                <element signature="e#1293#4296#0#PHP" expanded="false" />
+                <element signature="e#4305#5146#0#PHP" expanded="false" />
+                <element signature="e#5155#6396#0#PHP" expanded="false" />
+                <element signature="e#6405#7089#0#PHP" expanded="false" />
+                <element signature="e#7098#8441#0#PHP" expanded="false" />
+                <element signature="e#8450#9068#0#PHP" expanded="false" />
+                <element signature="e#9077#9938#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -35,11 +102,11 @@
       <file leaf-file-name="gestionjuegos.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/capaServer/gestionjuegos.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="44" column="14" lean-forward="false" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+            <state relative-caret-position="357">
+              <caret line="40" column="32" lean-forward="true" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
               <folding>
-                <element signature="e#472#960#0#PHP" expanded="false" />
-                <element signature="e#1493#1873#0#PHP" expanded="false" />
+                <element signature="e#1241#1756#0#PHP" expanded="false" />
+                <element signature="e#1765#2240#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -55,41 +122,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="borrajugador.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/capaCliente/borrajugador.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="BBDD.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/capaServer/BBDD.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="29" column="55" lean-forward="false" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="crearrutina.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/capaCliente/crearrutina.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="31" column="115" lean-forward="false" selection-start-line="31" selection-start-column="115" selection-end-line="31" selection-end-column="115" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="crearrutina.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/capaCliente/css/crearrutina.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+            <state relative-caret-position="1511">
+              <caret line="73" column="37" lean-forward="true" selection-start-line="73" selection-start-column="37" selection-end-line="73" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -101,8 +138,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -115,6 +152,8 @@
       <find>header</find>
       <find>content</find>
       <find>$juegos</find>
+      <find>juegos</find>
+      <find>$respuesta</find>
     </findStrings>
     <replaceStrings>
       <replace>$resactualizar</replace>
@@ -122,6 +161,7 @@
       <replace>cabecera</replace>
       <replace>cuerpo</replace>
       <replace>cuerp</replace>
+      <replace>juego</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -130,10 +170,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/secundarias/guardar.php" />
-        <option value="$PROJECT_DIR$/mongodb/litaUsuarios.php" />
-        <option value="$PROJECT_DIR$/secundarias/crear.html" />
         <option value="$PROJECT_DIR$/principal.html" />
         <option value="$PROJECT_DIR$/secundarias/login.html" />
         <option value="$PROJECT_DIR$/js/crear.js" />
@@ -158,7 +194,6 @@
         <option value="$PROJECT_DIR$/capaCliente/js/modificarjugador.js" />
         <option value="$PROJECT_DIR$/mongodb/2crearindices.php" />
         <option value="$PROJECT_DIR$/capaCliente/js/borrajugador.js" />
-        <option value="$PROJECT_DIR$/capaCliente/borrajugador.html" />
         <option value="$PROJECT_DIR$/capaCliente/modificausuario.html" />
         <option value="$PROJECT_DIR$/capaCliente/js/modificausuario.js" />
         <option value="$PROJECT_DIR$/capaCliente/js/confacceso.js" />
@@ -166,17 +201,26 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/mongodb/1crearbase.php" />
         <option value="$PROJECT_DIR$/capaCliente/js/crearjugador.js" />
-        <option value="$PROJECT_DIR$/capaServer/gestionjugadores.php" />
-        <option value="$PROJECT_DIR$/capaServer/BBDD.php" />
         <option value="$PROJECT_DIR$/capaCliente/listajuegos.html" />
         <option value="$PROJECT_DIR$/capaCliente/js/listajuegos.js" />
-        <option value="$PROJECT_DIR$/capaCliente/panelcontrol.html" />
         <option value="$PROJECT_DIR$/capaCliente/css/crearrutina.css" />
         <option value="$PROJECT_DIR$/capaCliente/crearrutina.html" />
         <option value="$PROJECT_DIR$/mongodb/listaRutinas.php" />
         <option value="$PROJECT_DIR$/mongodb/borrajugadores.php" />
-        <option value="$PROJECT_DIR$/capaServer/gestionjuegos.php" />
+        <option value="$PROJECT_DIR$/mongodb/borraDatosColeccion.php" />
         <option value="$PROJECT_DIR$/capaCliente/js/crearrutina.js" />
+        <option value="$PROJECT_DIR$/mongodb/listaJuegos.php" />
+        <option value="$PROJECT_DIR$/capaCliente/borrajugador.html" />
+        <option value="$PROJECT_DIR$/capaCliente/panelcontrol.html" />
+        <option value="$PROJECT_DIR$/capaServer/gestionjugadores.php" />
+        <option value="$PROJECT_DIR$/capaCliente/borrarutina.html" />
+        <option value="$PROJECT_DIR$/capaServer/gestionjuegos.php" />
+        <option value="$PROJECT_DIR$/capaCliente/modificarutina.html" />
+        <option value="$PROJECT_DIR$/capaCliente/js/modificarutina.js" />
+        <option value="$PROJECT_DIR$/capaServer/BBDD.php" />
+        <option value="$PROJECT_DIR$/capaCliente/js/asignar.js" />
+        <option value="$PROJECT_DIR$/capaCliente/asignar.html" />
+        <option value="$PROJECT_DIR$/capaCliente/js/borrarutina.js" />
       </list>
     </option>
   </component>
@@ -212,6 +256,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -284,32 +330,8 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="capaCliente" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jquery-ui-1.12.1" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -325,17 +347,17 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\web\capaCliente" />
+      <recent name="C:\xampp\htdocs\web\capaCliente\js" />
+      <recent name="C:\xampp\htdocs\web\mongodb" />
+      <recent name="C:\xampp\htdocs\web\secundarias" />
+      <recent name="C:\xampp\htdocs\web\js" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\web\papelera de reciclaje" />
       <recent name="C:\xampp\htdocs\web\capaCliente" />
       <recent name="C:\xampp\htdocs\web\capaServer" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\web\mongodb" />
-      <recent name="C:\xampp\htdocs\web\capaCliente\js" />
-      <recent name="C:\xampp\htdocs\web\capaCliente" />
-      <recent name="C:\xampp\htdocs\web\secundarias" />
-      <recent name="C:\xampp\htdocs\web\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -480,11 +502,27 @@
       <workItem from="1492188911570" duration="10750000" />
       <workItem from="1492224828773" duration="6261000" />
       <workItem from="1492272842393" duration="6367000" />
+      <workItem from="1492569978910" duration="2993000" />
+      <workItem from="1492754886377" duration="607000" />
+      <workItem from="1492760771323" duration="567000" />
+      <workItem from="1492762428252" duration="656000" />
+      <workItem from="1492918877603" duration="26000" />
+      <workItem from="1492918908989" duration="4091000" />
+      <workItem from="1493002321395" duration="6261000" />
+      <workItem from="1493091553096" duration="2970000" />
+      <workItem from="1493175826165" duration="4770000" />
+      <workItem from="1493259341558" duration="4181000" />
+      <workItem from="1493486422196" duration="511000" />
+      <workItem from="1493487084668" duration="5386000" />
+      <workItem from="1493524511170" duration="2688000" />
+      <workItem from="1493608579217" duration="599000" />
+      <workItem from="1493610418289" duration="2791000" />
+      <workItem from="1493649728881" duration="5951000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134291000" />
+    <option name="totallyTimeSpent" value="179339000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -509,27 +547,6 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16983895" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39905363" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -544,43 +561,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mongodb/1crearbase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="10" column="39" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/papelera de reciclaje/comprobar.php" />
-    <entry file="file://$PROJECT_DIR$/capaCliente/crear.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/capaCliente/js/crear.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="32" column="40" lean-forward="false" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/papelera de reciclaje/comprobar.php" />
-    <entry file="file://$PROJECT_DIR$/mongodb/1crearbase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="10" column="39" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/capaCliente/crear.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/capaCliente/js/crear.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -631,13 +611,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/capaCliente/js/borrajugador.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="34" lean-forward="true" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/capaCliente/crear.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -649,13 +622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2398">
           <caret line="109" column="3" lean-forward="true" selection-start-line="109" selection-start-column="3" selection-end-line="109" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mongodb/listaUsuarios.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -701,13 +667,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mongodb/listajugadores.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/capaCliente/crearjugador.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -729,45 +688,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/capaCliente/modificajugador.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="29" column="45" lean-forward="false" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/capaCliente/js/modificarjugador.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/capaCliente/js/listajuegos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/capaCliente/listajuegos.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/capaCliente/panelcontrol.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1518">
-          <caret line="6" column="90" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="6" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/capaServer/gestionjugadores.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="142" column="18" lean-forward="true" selection-start-line="112" selection-start-column="7" selection-end-line="142" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -778,15 +702,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/capaServer/BBDD.php">
+    <entry file="file://$PROJECT_DIR$/capaCliente/css/crearrutina.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="29" column="55" lean-forward="false" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
-          <folding />
+        <state relative-caret-position="88">
+          <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/capaCliente/crearrutina.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="682">
+          <caret line="31" column="115" lean-forward="false" selection-start-line="31" selection-start-column="115" selection-end-line="31" selection-end-column="115" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mongodb/1crearbase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="16" column="46" lean-forward="false" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/capaCliente/js/crearrutina.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2750">
+          <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mongodb/listaUsuarios.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mongodb/borraDatosColeccion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="13" column="78" lean-forward="false" selection-start-line="13" selection-start-column="78" selection-end-line="13" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/capaCliente/modificajugador.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="32" column="80" lean-forward="false" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/capaCliente/js/modificarjugador.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="40" column="5" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="40" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/capaCliente/borrajugador.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="10" column="64" lean-forward="true" selection-start-line="10" selection-start-column="64" selection-end-line="10" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/capaCliente/panelcontrol.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="86" column="61" lean-forward="false" selection-start-line="86" selection-start-column="61" selection-end-line="86" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/capaCliente/js/borrajugador.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="924">
+          <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/capaCliente/js/listajuegos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mongodb/listajugadores.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
@@ -794,38 +795,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mongodb/borrajugadores.php">
+    <entry file="file://$PROJECT_DIR$/capaCliente/modificarutina.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="13" column="34" lean-forward="false" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+        <state relative-caret-position="358">
+          <caret line="30" column="115" lean-forward="false" selection-start-line="30" selection-start-column="115" selection-end-line="30" selection-end-column="115" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/capaCliente/borrajugador.html">
+    <entry file="file://$PROJECT_DIR$/capaServer/BBDD.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+        <state relative-caret-position="1511">
+          <caret line="73" column="37" lean-forward="true" selection-start-line="73" selection-start-column="37" selection-end-line="73" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/capaCliente/css/crearrutina.css">
+    <entry file="file://$PROJECT_DIR$/capaCliente/borrarutina.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        <state relative-caret-position="54">
+          <caret line="6" column="51" lean-forward="true" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/capaServer/gestionjuegos.php">
+    <entry file="file://$PROJECT_DIR$/mongodb/listaJuegos.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="44" column="14" lean-forward="false" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
-          <folding>
-            <element signature="e#472#960#0#PHP" expanded="false" />
-            <element signature="e#1493#1873#0#PHP" expanded="false" />
-          </folding>
+        <state relative-caret-position="330">
+          <caret line="20" column="19" lean-forward="true" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -837,23 +835,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/capaCliente/crearrutina.html">
+    <entry file="file://$PROJECT_DIR$/capaCliente/asignar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="31" column="115" lean-forward="false" selection-start-line="31" selection-start-column="115" selection-end-line="31" selection-end-column="115" />
+        <state relative-caret-position="446">
+          <caret line="23" column="11" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/capaCliente/js/crearrutina.js">
+    <entry file="file://$PROJECT_DIR$/capaCliente/js/borrarutina.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="155" column="43" lean-forward="false" selection-start-line="155" selection-start-column="43" selection-end-line="155" selection-end-column="43" />
+        <state relative-caret-position="-206">
+          <caret line="48" column="66" lean-forward="false" selection-start-line="48" selection-start-column="66" selection-end-line="48" selection-end-column="66" />
           <folding>
-            <element signature="e#496#1773#0" expanded="false" />
-            <element signature="e#2314#3321#0" expanded="false" />
-            <element signature="e#3359#4834#0" expanded="false" />
+            <element signature="e#0#42#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/capaServer/gestionjuegos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="40" column="32" lean-forward="true" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+          <folding>
+            <element signature="e#1241#1756#0#PHP" expanded="false" />
+            <element signature="e#1765#2240#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/capaCliente/js/asignar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="106" column="41" lean-forward="false" selection-start-line="106" selection-start-column="41" selection-end-line="106" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/capaServer/gestionjugadores.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="245" column="24" lean-forward="false" selection-start-line="245" selection-start-column="24" selection-end-line="245" selection-end-column="24" />
+          <folding>
+            <element signature="e#472#1284#0#PHP" expanded="false" />
+            <element signature="e#1293#4296#0#PHP" expanded="false" />
+            <element signature="e#4305#5146#0#PHP" expanded="false" />
+            <element signature="e#5155#6396#0#PHP" expanded="false" />
+            <element signature="e#6405#7089#0#PHP" expanded="false" />
+            <element signature="e#7098#8441#0#PHP" expanded="false" />
+            <element signature="e#8450#9068#0#PHP" expanded="false" />
+            <element signature="e#9077#9938#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/capaCliente/js/modificarutina.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1452">
+          <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>

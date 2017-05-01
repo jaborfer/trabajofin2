@@ -69,7 +69,7 @@ class BBDD{
         //$client = new MongoDB\Client;
         //$mibase = $client->recuerdaMongo;
         $miColeccion = $this->mibase->$coleccion;
-        $modificacion= $miColeccion->updateOne( //aunque haya varios, solo modifica el primero
+        $modificacion= $miColeccion->updateMany(
             $condicion,
             ['$set'=>$modificacion]);
             return ($modificacion->getModifiedCount());

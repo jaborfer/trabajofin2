@@ -69,7 +69,7 @@ $(document).ready(function () {
     }
 
     function creaselect() {
-        envio = {"funcion": "listado", "coleccion": "juegos"};
+        envio = {"funcion": "listado", "coleccion": "juego"};
         $.ajax({
             url: "../capaServer/gestionjuegos.php"
             , async: true

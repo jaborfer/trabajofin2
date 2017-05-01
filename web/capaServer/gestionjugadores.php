@@ -7,13 +7,14 @@
  */
 require 'BBDD.php';
 session_start();
-$mibase= new BBDD();
+$mibase = new BBDD();
 //
 //LINEAS DE PRUEBAS BORRAR AL FINAL
-//$_POST['funcion']="traedocumento";
+//$_POST['funcion']="actualizarrutina";
 //$_POST['tipo']="cuidador";
-//$_SESSION['usuarioactivo']="pepito";
-//$_POST['jugador']="manolito el joven";*/
+//$_SESSION['usuarioactivo']="manolito";
+//$_POST['jugador']="eltercero";
+//$_POST['rutina']="rutina1";
 //HASTA AQUI
 //
 if (isset($_POST['funcion'])) {
@@ -23,6 +24,12 @@ if (isset($_POST['funcion'])) {
             $envio = [];
             $usuarioactivo = $_SESSION['usuarioactivo'];
             $objeto = ['usuario' => $usuarioactivo];
+            if (isset($_POST['rutina'])) {
+                $rutinabuscada = $_POST['rutina'];
+                $objeto = ['usuario' => $usuarioactivo, 'rutina' => $rutinabuscada];
+            } else { //aqui se meterían con else las distintas opciones de consultas
+                $objeto = ['usuario' => $usuarioactivo];
+            }
             $respuesta = $mibase->busca('jugador', $objeto);
 
             foreach ($respuesta as $doc) {
@@ -48,7 +55,7 @@ if (isset($_POST['funcion'])) {
                     ];
                     $comprueba = $mibase->inserta("cuidador", $dato);
                     if ($comprueba = 1) {
-                        $_SESSION['usuarioactivo'] = $nombre;
+                        $_SESSION['usuarioactivo'] = $usuario;
                         echo("ok");
                     } else {
                         if (isset($_SESSION['usuarioactivo'])) {
@@ -101,8 +108,8 @@ if (isset($_POST['funcion'])) {
                 $cursor = $mibase->busca('jugador', $objeto);
 
             } else { // si no es un jugador, es un usuario
-                    $objeto = ['usuario' => $usuarioactivo];
-                    $cursor = $mibase->busca('cuidador', $objeto);
+                $objeto = ['usuario' => $usuarioactivo];
+                $cursor = $mibase->busca('cuidador', $objeto);
 
             }
             $dato = $cursor->toArray();//lo convertimos en array para que sea más facil su manejo
@@ -167,7 +174,8 @@ if (isset($_POST['funcion'])) {
                 $enfermedad = $_POST['enfermedad'];
                 $edad = $_POST['edad'];
                 $notas = $_POST['notas'];
-                $condicion = ['jugador' => $jugador];
+                $usuarioactivo = $_SESSION['usuarioactivo'];
+                $condicion = ['jugador' => $jugador, 'usuario' => $usuarioactivo];
                 $modificacion = [
                     'edad' => $edad,
                     'enfermedad' => $enfermedad,
@@ -176,9 +184,9 @@ if (isset($_POST['funcion'])) {
                 $comprueba = $mibase->modifica("jugador", $condicion, $modificacion);
 
             } else {
-                $mail=$_POST['mail'];
-                $pass=$_POST['pass1'];
-                $usuarioactivo=$_SESSION['usuarioactivo'];
+                $mail = $_POST['mail'];
+                $pass = $_POST['pass1'];
+                $usuarioactivo = $_SESSION['usuarioactivo'];
                 $condicion = ['usuario' => $usuarioactivo];
                 $modificacion = [
                     'mail' => $mail,
@@ -187,43 +195,58 @@ if (isset($_POST['funcion'])) {
                 $comprueba = $mibase->modifica("cuidador", $condicion, $modificacion);
             }
             if ($comprueba == 1) {
-                echo ("ok");
+                echo("ok");
             } else {
-                echo ("Se produjo un error al actualizar, inténtelo más tarde");
+                echo("Se produjo un error al actualizar, inténtelo más tarde");
             }
             break;
         case "borrar":
             if (isset($_POST['jugador'])) { //opción para borrar los datos de un jugador
                 $jugador = $_POST['jugador'];
-                $usuario=$_SESSION['usuarioactivo'];
-                $condicion = ['jugador' => $jugador,'usuario'=>$usuario];
+                $usuario = $_SESSION['usuarioactivo'];
+                $condicion = ['jugador' => $jugador, 'usuario' => $usuario];
                 $borra = $mibase->borrar("jugador", $condicion);
 
                 if ($borra == 1) {
-                    echo ("ok");
+                    echo("ok");
                 } else {
-                    echo ("Se produjo un error al actualizar, inténtelo más tarde");
+                    echo("Se produjo un error al actualizar, inténtelo más tarde");
                 }
             }//aqui va el código para borrar los usuarios
             break;
         case "acceso":
-            $opcion=$_POST['opciones'];
-            if ($opcion=="standard"){
-                $inicio=[
-                    "autojuego"=>"no" // esta es la banderia para que vaya directamente a jugar o a la principal
+            $opcion = $_POST['opciones'];
+            if ($opcion == "standard") {
+                $inicio = [
+                    "autojuego" => "no" // esta es la banderia para que vaya directamente a jugar o a la principal
                 ];
-                $_SESSION['recuerdame']=$inicio;
-            } else if ($opcion=="juegos"){
-                $usuario=$_SESSION['usuarioactivo'];
-                $jugador=$_POST['jugador'];
-                $prueba=[
-                    "cuidador"=>$usuario,
-                    "jugador"=>$jugador,
-                    "autojuego"=>"si" // esta es la banderia para que vaya directamente a jugar o a la principal
+                $_SESSION['recuerdame'] = $inicio;
+            } else if ($opcion == "juegos") {
+                $usuario = $_SESSION['usuarioactivo'];
+                $jugador = $_POST['jugador'];
+                $prueba = [
+                    "cuidador" => $usuario,
+                    "jugador" => $jugador,
+                    "autojuego" => "si" // esta es la banderia para que vaya directamente a jugar o a la principal
                 ];
 
-                $_SESSION['recuerdame']=$inicio;
-            }else {echo("Error en la transmisión");}
+                $_SESSION['recuerdame'] = $inicio;
+            } else {
+                echo("Error en la transmisión");
+            }
+            break;
+        case "actualizarrutina": //este metodo se saca de actualizar para minimizar el consumo de red
+            $jugador = $_POST['jugador'];
+            $usuarioactivo = $_SESSION['usuarioactivo'];
+            $rutina = $_POST['rutina'];
+            $condicion = ['jugador' => $jugador, 'usuario' => $usuarioactivo];
+            $modificacion = ['rutina' => $rutina];
+            $comprueba = $mibase->modifica("jugador", $condicion, $modificacion);
+            if ($comprueba == 1) {
+                echo("ok");
+            } else {
+                echo("Se produjo un error al actualizar, inténtelo más tarde");
+            }
             break;
     }
 }

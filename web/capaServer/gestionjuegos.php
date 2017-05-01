@@ -10,10 +10,12 @@ session_start();
 $mibase = new BBDD();
 //
 //LINEAS DE PRUEBAS BORRAR AL FINAL
-//$_SESSION['usuarioactivo']="pepito";
-//$_POST['funcion']="comprobar";
+//$_SESSION['usuarioactivo'] = "manolito";
+//$_POST['funcion'] = "actualizar";
+//$_POST['coleccion'] = "rutina";
 //$_POST['nombre']="rutina1";
-//
+//$_POST['juegos']='["Juego1","Juego2","Juego3"]';
+// funcion: "actualizar", nombre: "rutina1", juegos: "["Juego5","Juego6","Juego7"]"
 
 $usuario = $_SESSION['usuarioactivo']; //las rutinas son propias de los usuarios
 
@@ -23,18 +25,21 @@ if (isset($_POST['funcion'])) {
     switch ($funcion) {
         case "listado":
             $coleccion = $_POST['coleccion'];
-            if ($coleccion == "juegos") {
-                $envio = [];
+            if ($coleccion == "rutina") { //las rutinas pertenecen a un usuario, los juegos a todos
+                $objeto = ['usuario' => $usuario];
+            } else {
                 $objeto = [];
-                $respuesta = $mibase->busca($coleccion, $objeto);
-
-                foreach ($respuesta as $dato) {
-                    unset($dato["_id"]);
-                    array_push($envio, $dato);
-                }
-                sort($envio);
-                echo json_encode($envio);
             }
+            $envio = [];
+            $respuesta = $mibase->busca($coleccion, $objeto);
+
+            foreach ($respuesta as $dato) {
+                unset($dato["_id"]);
+                array_push($envio, $dato);
+            }
+            sort($envio);
+            echo json_encode($envio);
+
             break;
         case "comprobar": //en este caso sólo se puede comprobar si existe una rutina, no tiene sentido el caso de juego
             $nombre = $_POST['nombre'];
@@ -53,10 +58,51 @@ if (isset($_POST['funcion'])) {
 
             break;
         case "guardar":
-            $nombre=$_POST['nombre'];
-            $juegos= $_POST['juegos']; //lo guardo directamente como objeto json
-            $dato =['nombre' => $nombre, 'usuario' =>$usuario, 'juegos'=>$juegos];
-            $comprobacion=$mibase->inserta("rutina",$dato);
-            if($comprobacion==1){echo('correcto');}else{echo('error al guardar en la base de datos');}
+            $nombre = $_POST['nombre'];
+            $juegos = $_POST['juegos']; //lo guardo directamente como objeto json
+            $dato = ['nombre' => $nombre, 'usuario' => $usuario, 'juegos' => $juegos];
+            $comprobacion = $mibase->inserta("rutina", $dato);
+            if ($comprobacion == 1) {
+                echo('correcto');
+            } else {
+                echo('error al guardar en la base de datos');
+            }
+            break;
+        case "actualizar":
+            $nombre = $_POST['nombre'];
+            $juegos = $_POST['juegos']; //lo guardo directamente como objeto json
+            $condicion = ["nombre" => $nombre, "usuario" => $usuario];
+            $modificacion = ['juegos' => $juegos];
+            $comprobacion = $mibase->modifica("rutina", $condicion, $modificacion);
+            if ($comprobacion != 1) {
+                echo("Error al actualizar la rutina " . $nombre . "  codigo " . $comprobacion);
+            } else {
+                echo("correcto");
+            }
+            break;
+        case "borrar":
+            $rutina = $_POST['rutina'];
+            $control = $_POST['control'];
+            $comprobacion = 0;
+
+            if ($control > 0) { //al menos hay un jugador con esa rutina que hay que borrar
+                $condicion = ["rutina" => $rutina, "usuario" => $usuario];
+                $modificacion = ['rutina' => ""];
+                $comprobacion = $mibase->modifica("jugador", $condicion, $modificacion);
+                if ($comprobacion != $control) {//comprobamos que NO se han "desasignado"correctamente todos los jugadores
+                    echo ("hubo un error en el proceso, intentelo más tarde  codigo " . $comprobacion);
+                }
+                if ($control == 0 || $comprobacion == $control) {
+                    $condicion = ['nombre' => $rutina, 'usuario' => $usuario];
+                    $borra = $mibase->borrar("rutina", $condicion);
+                    if ($borra == 1) {
+                        echo("Rutina borrada correctamente");
+                    } else {
+
+                        echo("Error al actualizar la rutina " . $nombre );
+                    }
+                }
+            }
+            break;
     };
 }

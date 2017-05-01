@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="js/borrarutina.js"></script>
+
+</head>
+<body>
+<select name="rutina" id="selectrutina">
+    <option value="">Seleccione la rutina</option>
+</select>
+</br>
+</br>
+<button id="enviar">borrar</button>
+<div id="loader"><img src="imagenes/cargando.gif" alt="Cargando"></div>
+<div id="resactualizar"></div>
+<div id="listajugador">
+    <p>Los siguientes jugadores tienen asignada esa rutina:</p>
+    <ul id="listado"></ul>
+    <p>Estos jugadores se quedarán sin rutina asociada</p>
+    <p>¿Seguro que quiere
+        <button id="borrar">borrar</button>
+        ls rutina?
+    </p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+  <script type="text/javascript" src="js/borrajugador.js"></script>
+  <link rel="stylesheet" href="../css/estilo-panel.css"> </head>
+
+<body>
+  <form action="../capaServer/gestionjugadores.php" method="post" class="list-group">
+    <div class="list-group-item active list-header"> <span class="titulo">borrar jugador</span> </div>
+    <div class=" list-group-item"> <span class="icon glyphicon glyphicon-tasks"></span>
+      <div class="centradorv">
+        <select name="jugador" id="miselect">
+          <option value="">Seleccione el jugador</option>
+        </select>
+        <div id="formulario">
+          <ul class="radio">
+            <li>
+              <!--input type="radio" name="opciones" value="juegos" id="juegos"-->
+              <input type="checkbox" name="entiendo" id="aceptar" style="  position: absolute; visibility: hidden;">
+              <label for="aceptar">
+                <div id="paracheck">Estoy seguro de que quiero borrar los datos y entiendo que no se podrán recuperar</div>
+              </label>
+              <div class="check"></div>
+              <label></label>
+            </li>
+          </ul>
+          <br>
+          <input type="submit" value="borrar" id="botonrojo">
+          <br>
+          <div id="loader2"><img src="imagenes/cargando.gif" alt="Cargando"></div>
+          <div id="resborrar"></div>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>
+
+</html>
