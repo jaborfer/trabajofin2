@@ -3,20 +3,18 @@
  */
 $(document).ready(function () {
     var $miselect = $('#miselect');
-    var $formulario = $('#formulario');
-    var $edad=$('#edad');
-    var $enfermedad=$('#enfermedad');
-    var $notas=$('#notas');
     var $loader2=$("#loader2");
     var $resactualizar=$("#resactualizar");
+    var $enviar=$('#enviar');
+    var $resultados=$('#resultados');
+    $enviar.attr("disabled",true);
+    //$resultados.toggle("fast");
     $loader2.toggle("fast");
-    $formulario.hide();
     creaselect();
 
     $miselect.change(function () {
-        cargaformulario();
-        $formulario.show();
-
+        $resultados.empty();
+        $enviar.attr("disabled",false);
     });
 
 
@@ -39,44 +37,30 @@ $(document).ready(function () {
             }
         });
     }
-    function cargaformulario() {
-        var jugadorseleccionado=$miselect.val();
-        envio = {"funcion": "traedocumento","tipo":"jugador","jugador":jugadorseleccionado};
+
+    $enviar.click(function () {
+        $resactualizar.empty();
+        $loader2.toggle("fast");
+        jugador=$miselect.val();
+        envio = {"funcion": "puntuacion","jugador":jugador};
         $.ajax({
-            url: "../capaServer/gestionjugadores.php"
+            url: "../capaServer/gestionjuegos.php"
             , async: true
             , type: 'post'
             , data: envio
             , timeout: 2000
-            , success: function (respuestajson) {
-
-                var respuesta = $.parseJSON(respuestajson);
-                $edad.val(respuesta["edad"]);
-                $enfermedad.val(respuesta["enfermedad"]);
-                $notas.val(respuesta["notas"]);
-            }
-            , error: function () {
-                $respuesta.empty().append("Error en la comunicación con el servidor");
-            }
-        });
-    }
-    $("form").submit(function () {
-        $resactualizar.empty();
-        $loader2.toggle("fast");
-        $.ajax({
-            url: $("form").attr("action")
-            , async: true
-            , type: 'post'
-            , data: $("form").serialize()
-            , timeout: 2000
             , success: function ($respuesta) {
-                if ($respuesta == "ok") {
-                    $formulario.hide();
-                    $resactualizar.empty().append("Usuario modificado correctamente");
-
-                } else {
-                    $resactualizar.empty().append($respuesta);
-                }
+                var datos=$.parseJSON($respuesta);
+                $resultados.append("<tr><th>Jugador</th><th>Juego</th><th>Fecha</th><th>Puntuación</th></tr>")
+                $resultados.append("<tr><td>"+$miselect.val()+"</td><td></td><td></td><td></td></tr>");
+                var juegoaux="";
+                $.each(datos,function (id, value) {
+                    if(value["juego"]!=juegoaux){
+                        juegoaux=value["juego"];
+                        $resultados.append("<tr><td></td><td>"+juegoaux+"</td><td></td><td></td></tr>");
+                    };
+                    $resultados.append("<tr><td></td><td></td><td class='pinta'>"+value['fecha']+"</td><td class='pinta'>"+value['resultado']+"</td></tr>");
+                })
 
             }
             , error: function () {
@@ -86,6 +70,5 @@ $(document).ready(function () {
                 $loader2.toggle("fast");
             }
         });
-        return false;
     });
 });

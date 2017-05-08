@@ -75,38 +75,6 @@ $(document).ready(function () {
         });
         return false;
     });
-    /*$botonenviar.click(function () {
-        console.log("enviado");
-        $resactualizar.empty();
-        $loader2.toggle("fast");
-        $.ajax({
-            url: "../capaServer/gestionjugadores.php"
-            , async: true
-            , type: 'post'
-            , data: $("form").serialize()
-            , timeout: 2000
-            , success: function (respuesta) {
-                console.log("respuesta= " + respuesta);
-                if (respuesta === "ok") {
-                    $divformulario.toggle("fast");
-                    var jugadorseleccionado=$miselect.val();
-                    $resactualizar.empty().append(jugadorseleccionado + " actualizado correctamente");
 
-                } else {
-                    console.log("error");
-                    $resactualizar.empty().append($respuesta);
-                }
-
-            }
-            , error: function () {
-                console.log("error1");
-                $resactualizar.empty().append("Error en la carga AjAx, por favor recargue la página e intentelo de nuevo")
-            }
-            , complete: function () {
-                console.log("completado");
-                $loader2.toggle("fast");
-            }
-        });
-    });*/
 
 });

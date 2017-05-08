@@ -32,7 +32,6 @@ $(document).ready(function () {
     });
 
     function comprueba() {
-        console.log("comprobando " + chknombre);
         $("#enviar").attr("disabled", !((chkmail && chknombre) && chkpass));
     }
 
@@ -55,11 +54,9 @@ $(document).ready(function () {
             , success: function (ok) {
 
                 if (ok == "valido") {
-                    console.log("valido");
                     $respuesta.empty().append("Usuario disponible");
                     chknombre = true;
                 } else if (ok == "invalido") {
-                    console.log("invalido");
                     $respuesta.empty().append("Usuario usado, elija otro");
                     chknombre = false;
                 } else {

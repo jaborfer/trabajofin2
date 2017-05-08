@@ -6,6 +6,7 @@
  * Time: 5:45
  */
 require 'BBDD.php';
+ini_set('session.cookie_lifetime',3000000 );
 session_start();
 $mibase = new BBDD();
 //
@@ -217,20 +218,23 @@ if (isset($_POST['funcion'])) {
         case "acceso":
             $opcion = $_POST['opciones'];
             if ($opcion == "standard") {
-                $inicio = [
-                    "autojuego" => "no" // esta es la banderia para que vaya directamente a jugar o a la principal
-                ];
+                if (isset($_POST['jugador'])) { //esto es para ir directamente a los juegos
+                    $_SESSION['jugadorseleccionado'] = $_POST['jugador'];
+                }
+                $inicio = ["autojuego" => "no"]; // esta es la banderia para que vaya directamente a jugar o a la principal
                 $_SESSION['recuerdame'] = $inicio;
+                echo("ok");
             } else if ($opcion == "juegos") {
                 $usuario = $_SESSION['usuarioactivo'];
                 $jugador = $_POST['jugador'];
-                $prueba = [
-                    "cuidador" => $usuario,
+                $inicio = [
+                    "usuario" => $usuario,
                     "jugador" => $jugador,
                     "autojuego" => "si" // esta es la banderia para que vaya directamente a jugar o a la principal
                 ];
 
                 $_SESSION['recuerdame'] = $inicio;
+                echo("ok");
             } else {
                 echo("Error en la transmisión");
             }

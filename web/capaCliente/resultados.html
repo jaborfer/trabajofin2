@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="js/resultados.js"></script>
+<style>
+    td,th{
+        text-align: center;
+        padding-left: 30px;
+    }
+    tr:nth-child(odd) .pinta{
+        background: #000096;
+        color: #FFFFFF;
+    }
+
+    tr:nth-child(even) .pinta{
+        background: #FFFFFF;
+        color: #000096;
+    }
+</style>
+</head>
+<body>
+    <label>Quiero ver los resultados de:</label>
+    <select name="jugador" id="miselect">
+        <option value="">Seleccione el jugador</option>
+    </select><br/><br/>
+    <br> <input type="submit" value="ver resultado" id="enviar">
+        <br>
+        <input type="reset" value="Borrar"><br>
+        <div id="loader2"><img src="imagenes/cargando.gif" alt="Cargando"></div>
+        <br>
+
+    </div>
+
+<div id="resactualizar"></div>
+    <div>
+        <table id="resultados"></table>
+    </div>
+</body>
+</html>

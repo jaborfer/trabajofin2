@@ -8,17 +8,20 @@
 require 'BBDD.php';
 session_start();
 $mibase = new BBDD();
+
+setlocale(LC_ALL,"es_ES");
+
 //
 //LINEAS DE PRUEBAS BORRAR AL FINAL
 //$_SESSION['usuarioactivo'] = "manolito";
-//$_POST['funcion'] = "actualizar";
+//$_SESSION['jugadorseleccionado'] = "jugador1";
+//$_POST['funcion'] = "puntuacion";
 //$_POST['coleccion'] = "rutina";
 //$_POST['nombre']="rutina1";
 //$_POST['juegos']='["Juego1","Juego2","Juego3"]';
 // funcion: "actualizar", nombre: "rutina1", juegos: "["Juego5","Juego6","Juego7"]"
 
 $usuario = $_SESSION['usuarioactivo']; //las rutinas son propias de los usuarios
-
 
 if (isset($_POST['funcion'])) {
     $funcion = $_POST['funcion'];
@@ -58,10 +61,22 @@ if (isset($_POST['funcion'])) {
 
             break;
         case "guardar":
+            if(isset($_POST['juegos'])){
             $nombre = $_POST['nombre'];
             $juegos = $_POST['juegos']; //lo guardo directamente como objeto json
             $dato = ['nombre' => $nombre, 'usuario' => $usuario, 'juegos' => $juegos];
-            $comprobacion = $mibase->inserta("rutina", $dato);
+            $coleccion="rutina";
+            } else {
+                $jugador=$_SESSION['jugadorseleccionado'];
+                $juego=$_POST['juego'];
+                $puntuacion=$_POST['puntuacion'];
+                $coleccion="puntuacion";
+                ini_set('date.timezone','Europe/Madrid');
+                $fecha= date( "d-M-Y H:i:s");
+                $dato=['jugador'=>$jugador, 'usuario'=>$usuario, 'juego'=>$juego, 'fecha'=>$fecha, 'resultado'=>$puntuacion];
+            }
+
+            $comprobacion = $mibase->inserta($coleccion, $dato);
             if ($comprobacion == 1) {
                 echo('correcto');
             } else {
@@ -104,5 +119,34 @@ if (isset($_POST['funcion'])) {
                 }
             }
             break;
+        case "traejuegos":
+            $jugador=$_SESSION['jugadorseleccionado']; //primero recupero la rutina que tiene asignada ese jugador
+            $objeto = ['usuario' => $usuario, 'jugador' => $jugador];
+            $cursor = $mibase->busca('jugador', $objeto);
+            $dato = $cursor->toArray();
+            $rutina=$dato[0]["rutina"];
+            $objeto = ['usuario' => $usuario, 'nombre' => $rutina];//segundo me traigo la lista de juegos
+            $cursor = $mibase->busca('rutina', $objeto);
+            $dato = $cursor->toArray();
+            $juegos=$dato[0]["juegos"];
+            echo($juegos);
+            break;
+        case "puntuacion":
+            $coleccion="puntuacion";
+            $jugador=$_POST['jugador'];
+            $consulta= array('usuario'=>$usuario, 'jugador'=>$jugador);
+            $projection= array("_id"=>false,"sort"=>array("juego"=>1));
+            $respuesta = $mibase->proyecta($coleccion, $consulta,$projection);
+
+            $envio=[];
+            foreach ($respuesta as $dato){
+                $partida['juego']=$dato['juego'];
+                $partida['fecha']=$dato['fecha'];
+                $partida['resultado']=$dato['resultado'];
+                array_push($envio,$partida);
+            }
+            echo(json_encode($envio));
+            break;
+
     };
 }

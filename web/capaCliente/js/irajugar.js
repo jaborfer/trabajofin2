@@ -3,24 +3,18 @@
  */
 $(document).ready(function () {
     var $miselect = $('#miselect');
-    var $formulario = $('#formulario');
     var $loader2=$("#loader2");
-    var $resborrar=$("#resborrar");
-    var $boton=$("#botonrojo");
-    var $aceptar=$("#aceptar");
-    $boton.attr("disabled",true);
+    var $resactualizar=$("#resactualizar");
+    var $enviar=$('#enviar');
+    $enviar.attr("disabled",true);
     $loader2.toggle("fast");
-    $formulario.hide();
     creaselect();
 
     $miselect.change(function () {
-        $formulario.show();
-        $boton.attr("disabled",true);
+        $enviar.attr("disabled",false);
     });
 
-    $("#aceptar").click(function () {
-        $boton.attr("disabled",!$aceptar.prop('checked'));
-    });
+
     function creaselect() {
         envio = {"funcion": "listado"};
         $.ajax({
@@ -41,28 +35,29 @@ $(document).ready(function () {
         });
     }
 
-    $("form").submit(function () {
-        $resborrar.empty();
+    $enviar.click(function () {
+        $resactualizar.empty();
         $loader2.toggle("fast");
+        jugador=$miselect.val();
+        envio = {"funcion": "acceso","opciones":"standard","jugador":jugador};
         $.ajax({
-            url: $("form").attr("action")
+            url: "../capaServer/gestionjugadores.php"
             , async: true
             , type: 'post'
-            , data: $("form").serialize()
+            , data: envio
             , timeout: 2000
             , success: function ($respuesta) {
                 if ($respuesta == "ok") {
-                    $formulario.hide();
-                    $resborrar.empty().append("Usuario borrado correctamente");
-                    $miselect.empty();
-                    creaselect();
+
+                    window.parent.location.href = "juego.html";
 
                 } else {
-                    $resborrar.empty().append($respuesta);
+                    $resactualizar.empty().append($respuesta);
                 }
+
             }
             , error: function () {
-                $resborrar.empty().append("Error en la carga AjAx, por favor recargue la página e intentelo de nuevo")
+                $resactualizar.empty().append("Error en la carga AjAx, por favor recargue la página e intentelo de nuevo")
             }
             , complete: function () {
                 $loader2.toggle("fast");
@@ -70,5 +65,4 @@ $(document).ready(function () {
         });
         return false;
     });
-
 });

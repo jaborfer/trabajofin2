@@ -108,8 +108,6 @@ $(document).ready(function () {
             , timeout: 2000
             , success: function (listajson) {
                 var lista = $.parseJSON(listajson);
-                console.log(lista);
-
                 $listado.append('<p>Los jugadores creados son:</p>');
                 $listado.append('<ul>');
                 $.each(lista, function (index, value) {

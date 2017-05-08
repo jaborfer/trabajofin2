@@ -54,6 +54,14 @@ class BBDD{
         return ($respuesta);
     }
 
+    function proyecta($coleccion, $query, $projection){
+        //$client = new MongoDB\Client;
+        //$mibase = $client->recuerdaMongo;
+        $lacoleccion = $this->mibase ->$coleccion;
+        $respuesta =$lacoleccion->find($query,$projection);
+        return ($respuesta);
+    }
+
     function inserta($coleccion, $dato)
     {
         //$client = new MongoDB\Client;
