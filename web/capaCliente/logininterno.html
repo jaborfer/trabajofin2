@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Recuérdame</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+  <script type="text/javascript" src="js/login.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="css/logininterno.css">
+  <link rel="icon" type="image/png" href="imagenes/favicon.png">
+</head>
+
+<body class="panelcon">
+  <form class='login-form panel panel-default' action="" method="post">
+    <div class="panel-heading"> <span class="icon  glyphicon glyphicon-knight"></span> <span class="titulo">inicia sesión</span></div>
+    <div class="panel-body">
+      <input type="hidden" name="funcion" value="login">
+      <input type="text" name="usuario" id="usuario" placeholder="Usuario">
+      <br>
+      <input type="password" name="pass1" id="pass1" placeholder="Contrase&ntilde;a">
+      <br>
+      <button id="enviar">entrar</button>
+      <div id="loader2" style="display: none;"><img src="imagenes/cargando.gif" alt="Cargando"></div>
+      <div id="recuperacion">¿Olvidaste tu contraseña?</div>
+      <div id="resultadologin"></div>
+    </div>
+  </form>
+</body>
+
+</html>

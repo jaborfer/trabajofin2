@@ -1,21 +1,14 @@
 <?php
 session_start();
-//Este bloque es solo para hacer las pruebas con sesiones
-/*$prueba=[
-    "usuario"=>"pepito",
-    "jugador"=>"juanito",
-    "autojuego"=>"no" // esta es la banderia para que vaya directamente a jugar o a la principal
-];
-$_SESSION['recuerdame']=$prueba;*/
-//unset($_SESSION['recuerdame']);
-
-
-if (!isset($_SESSION['recuerdame'])||$_SESSION['recuerdame']['autojuego']=="no") {
-  header('Location: ./capaCliente/principal.html');
-} else {
-  $datosInicio=$_SESSION['recuerdame'];
-    $_SESSION['usuarioactivo']=$datosInicio['usuario'];
-    $_SESSION['jugadorseleccionado']=$datosInicio['jugador'];
-  header('Location: ./capaCliente/juego.html');;
+if (!isset($_COOKIE['autojuego'])){
+    setcookie('usuario', "",time()+60*60*24*30,"/");
+    setcookie('jugador', "",time()+60*60*24*30,"/");
+    setcookie('autojuego', "no", time()+60*60*24*30,"/");
+     echo "<script language='javascript'>window.location='./capaCliente/inicio.php'</script>";
+} elseif ($_COOKIE['autojuego'] == "si") {
+    $_SESSION['usuarioactivo'] = $_COOKIE['usuario'];
+    $_SESSION['jugadorseleccionado'] = $_COOKIE['jugador'];
+    header('Location: ./capaCliente/juego.html');
+}else{
+       echo "<script language='javascript'>window.location='./capaCliente/inicio.php'</script>";
 }
-?>

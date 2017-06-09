@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
-    <script type="text/javascript" src="js/borrarutina.js"></script>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+  <script type="text/javascript" src="js/borrarutina.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/estilo-panel.css" /> </head>
 
-</head>
 <body>
-<select name="rutina" id="selectrutina">
-    <option value="">Seleccione la rutina</option>
-</select>
-</br>
-</br>
-<button id="enviar">borrar</button>
-<div id="loader"><img src="imagenes/cargando.gif" alt="Cargando"></div>
-<div id="resactualizar"></div>
-<div id="listajugador">
-    <p>Los siguientes jugadores tienen asignada esa rutina:</p>
-    <ul id="listado"></ul>
-    <p>Estos jugadores se quedarán sin rutina asociada</p>
-    <p>¿Seguro que quiere
-        <button id="borrar">borrar</button>
-        ls rutina?
-    </p>
-
-</div>
+  <article class="list-group extraw">
+    <input type="hidden" name="funcion" value="guardar">
+    <div class="list-group-item active list-header"> <span class="titulo">crear rutinas</span> </div>
+    <div class=" list-group-item"> <span class="icon glyphicon glyphicon-transfer"></span>
+      <div class="centradoh">
+        <select name="rutina" id="selectrutina">
+          <option value="">Seleccione la rutina</option>
+        </select>
+      </div>
+      <button id="enviar">borrar</button>
+      <div id="loader"><img src="imagenes/cargando.gif" alt="Cargando"></div>
+      <div id="resactualizar"></div>
+      <div id="listajugador">
+        <p>Los siguientes jugadores tienen asignada esa rutina:</p>
+        <ul id="listado"></ul>
+        <p>Estos jugadores se quedarán sin rutina asociada</p>
+        <p>¿Seguro que quiere borrar ls rutina? </p>
+        <button id="borrar" class="btn-danger">borrar</button>
+      </div>
+    </div>
+  </article>
 </body>
+
 </html>

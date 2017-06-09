@@ -1,0 +1,67 @@
+#contcuads {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.cuadrado {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid grey;
+    transition: 0.2s;
+}
+
+.subcuadrado {
+    border: 1px solid grey;
+    width: 50%;
+    height: 50%;
+    transition: 0.2s;
+}
+
+.on {
+    background: #fadd61;
+}
+
+.sel *:hover {
+    background: #fadd61;
+}
+
+.sel * {
+    cursor: pointer;
+}
+
+.done {
+    cursor: default;
+    display: flex;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
+}
+
+.done div {
+    color: white;
+    text-align: center;
+    font-size: 45px;
+}
+
+.moneda {
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+}
+
+[type=number].btn {
+    margin-left: 10px;
+    width: 80px;
+    color: black !important;
+}
+
+[type=button].btn {
+    margin-left: 40px;
+}
+
+body {
+    background: rgba(255, 255, 255, 0.34) !important;
+}

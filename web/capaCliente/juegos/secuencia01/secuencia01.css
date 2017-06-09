@@ -1,0 +1,48 @@
+#pizarra {
+  display: flex;
+  justify-content: space-around;
+}
+
+.rectangulo {
+  width: 200px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid grey;
+  transition: 0.2s;
+}
+
+.seleccionado {
+  border: 5px double darkgrey;
+  transform: scale(1.1, 1.1);
+}
+
+.on {
+  background: #fadd61;
+}
+
+.sel *:hover {
+  background: #fadd61;
+}
+
+.sel * {
+  cursor: pointer;
+}
+
+.done {
+  cursor: default;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+.done div {
+  color: white;
+  text-align: center;
+  font-size: 45px;
+}
+
+body {
+  background: rgba(255, 255, 255, 0.34) !important;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Recuérdame</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/estilo-panel.css">
+  <link rel="icon" type="image/png" href="imagenes/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="/path/to/parallax.js"></script>
+</head>
+
+<body>
+  <audio id="myAudio">
+      <source src="../music/00.mp3" type="audio/mpeg"> </audio>
+  <nav class="navbar navbar-static-top navbar-default navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <a class="navbar-brand" href="#" style="padding: 9px;"><img src="imagenes/logohoriz.png" alt="recuérdame"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a id="previous" class="glyphicon glyphicon-fast-backward" disabled></a>
+          </li>
+          <li>
+            <a id="play" class=" glyphicon glyphicon-play " disabled></a>
+          </li>
+          <li>
+            <a id="next" class="glyphicon glyphicon-fast-forward " disabled></a>
+          </li>
+          <li class="nohover">
+            <a id="playing" class="glyphicon glyphicon-music " disabled></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <div class="container-fluid" style="text-align: center; padding: 0px !important;">
+    <div class="container" style="margin-top:70px;">
+      <div class="row">
+        <div class="col-xs-4"> <img src="imagenes/logocir.png" alt="" style="width: 300px; height: 300px; margin: auto; margin-top: 60px; box-shadow: 0 0 5px rgba(0,0,0,0.25); border-radius: 100%;"></div>
+        <div class="col-xs-8">
+          <h3 class="manual">tipos de usuario</h3>
+          <div class="flexh">
+            <img src="imagenes/cirjug.png" alt="jugador" class="cirmanu">
+            <div>
+              <h4 class="manual">jugador</h4>
+              <p>Su unico cometido será jugar, no tendrá acceso a otras secciones, solo podrá jugar la rutina que un cuidador le haya asignado.</p>
+            </div>
+          </div>
+          <div class="flexh">
+            <img src="imagenes/circui.png" alt="jugador" class="cirmanu">
+            <div>
+              <h4 class="manual">cuidador</h4>
+              <p>Tiene acceso completo al panel de control, accediendo con su contraseña puede crear todos los jugadores que desee, asignar rutinas, controlar progresos, etc...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bkgtrans">
+      <div class="container">
+        <h3 class="manual" style="text-align: center;">videotutorial</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/E7H1zrTm7z8?ecver=1" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div id="whiteseparador"></div>
+    <div class="parallax-window burbujas" data-parallax="scroll" data-image-src="http://www.technocrazed.com/wp-content/uploads/2015/12/Blue-Wallpaper-For-Background-27.jpg">
+      <div class="container" id="flexc">
+        <div id="imgrutina"></div>
+        <div id="textorutinas">
+          <h3 class="manual" style="color: white;">rutinas personalizadas</h3>
+          <br>
+          <div>Como cuidador, podrás elegir con cuantos juegos y con cuales entrenará día a día.
+            <br><br> Sus progresos serán recogidos por la aplicación automáticamente y podrás consultarlos cuando quieras.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <br><br><br>
+      <h3 class="manual" style="text-align: center;">dispotivivos personalizados</h3><br>
+      <img src="imagenes/dispositivos.png" alt="dispositivos">
+      <br><br><br><br>
+      <p style="font-size: 20px;">Podrás configurar diferentes dispositivos para que en cada uno de ellos entre un jugador directamente
+      </p>
+      <br>
+      <h2>¡Podrán jugar con tan solo un click!</h2>
+      <br><br><br><br><br>
+    </div>
+
+  </div>
+  <footer class="creditos">
+
+    <div>Joaquín Vidal Guzmán</div>
+    <div>José Antonio Borrero Fernández</div>
+    <div> 2017<img src="https://i.creativecommons.org/l/by-nc/3.0/nl/88x31.png" alt="creative commons" style="margin-left: 10px"></div>
+
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/parallax.js-1.4.2/parallax.js"></script>
+  <script type="text/javascript" src="js/musica.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.parallax-window.burbujas').parallax({
+        imageSrc: 'imagenes/paral01.jpg'
+      });
+    });
+
+  </script>
+</body>
+
+</html>

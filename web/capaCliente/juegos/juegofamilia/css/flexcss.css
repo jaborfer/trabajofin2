@@ -1,0 +1,65 @@
+body {
+    height: 98vh;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    background: grey url("../img/yodaportada.jpg") no-repeat top left;
+    background-size: contain;
+}
+
+header {
+    height: 2vh;
+    margin: auto;
+}
+
+main {
+    height: 80vh;
+    background-color: rgba(132, 129, 129, 0.7);
+    margin: 3%;
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    flex-direction: column;
+}
+
+#fila1, #fila2 {
+    margin: 0 3%;
+    width: 90%;
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+main img {
+    clip: rect(0, 192px, 192px, 0);
+    flex-basis: 15%;
+    flex-grow: 0;
+    margin: 2%;
+    border: 5px double red;
+    opacity: 1;
+}
+
+@keyframes bordeAnimado {
+    to {
+        outline-color: #EA3556;
+        box-shadow: 0 0 0 6px yellow;
+    }
+}
+
+.clikeado {
+    opacity: 0.5;
+    outline: 6px dashed yellow;
+    box-shadow: 0 0 0 6px #EA3556;
+    animation: 1s bordeAnimado infinite;
+
+}
+
+main img.over {
+    border: 2px dashed #000;
+}
+
+footer h1 {
+    color: red;
+}

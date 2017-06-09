@@ -1,0 +1,99 @@
+.contcuads {
+  display: flex;
+  justify-content: space-around;
+}
+
+.cuadrado {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 3px solid #393939;
+  transition: 0.2s;
+  background: white;
+}
+
+.subcuadrado {
+  border: 1px solid #393939;
+  width: 197px;
+  height: 197px;
+  transition: 0.2s;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.subsub {
+  border: 0.5px solid rgba(175, 175, 175, 0.74);
+  width: 97.5px;
+  height: 97.5px;
+  transition: 0.2s;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  font-size: 35px;
+}
+
+.on {
+  background: #fadd61;
+}
+
+.sel:hover {
+  background: #fadd61;
+}
+
+.sel {
+  cursor: pointer;
+  color: #69d199;
+}
+
+.done {
+  cursor: default;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+.done div {
+  color: white;
+  text-align: center;
+  font-size: 45px;
+}
+
+.pulsador {
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.instr {
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.numpul {
+  width: 99px;
+  height: 99px;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  border: 2px solid #3c311c;
+  font-size: 35px;
+  font-weight: bold;
+  background: #f5ff7b;
+  cursor: pointer;
+}
+
+.numpl:hover {
+  opacity: 0.5;
+}
+
+.escalador {
+  transform: scale(0.8);
+}

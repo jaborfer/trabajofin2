@@ -11,29 +11,29 @@
  *
  * @author jabor
  */
-require '../mongodb/vendor/autoload.php';
+require '../vendor/autoload.php';
 
 class BBDD{
     private $client;
     private $mibase;
 
-  /*  public function __construct()//CONEXION PARA SERVIDOR MLAB
+   public function __construct()//CONEXION PARA SERVIDOR MLAB
     {
         if(!isset($conexion)){
-            $uri="mongodb://recuerdameclient:mu0056as@ds157500.mlab.com:57500/recuerdame";
+            $uri="aqui va la uri de conexión";
 
             $this->client = new MongoDB\Client($uri);
             $this->mibase = $this->client->recuerdame;
         }
-    }*/
+    }
 
-    public function __construct() //CONEXION PARA LOCAL
+   /* public function __construct() //CONEXION PARA LOCAL
     {
         if(!isset($conexion)){
             $this->client= new MongoDB\Client;
             $this->mibase= $this->client->recuerdaMongo;
         }
-    }
+    }*/
 
 
      function existe($coleccion, $dato)

@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
-    <script type="text/javascript" src="js/resultados.js"></script>
-<style>
-    td,th{
-        text-align: center;
-        padding-left: 30px;
-    }
-    tr:nth-child(odd) .pinta{
-        background: #000096;
-        color: #FFFFFF;
-    }
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+  <script type="text/javascript" src="js/resultados.js"></script>
+  <link rel="stylesheet" href="css/estilo-panel.css"> </head>
 
-    tr:nth-child(even) .pinta{
-        background: #FFFFFF;
-        color: #000096;
-    }
-</style>
-</head>
 <body>
-    <label>Quiero ver los resultados de:</label>
-    <select name="jugador" id="miselect">
-        <option value="">Seleccione el jugador</option>
-    </select><br/><br/>
-    <br> <input type="submit" value="ver resultado" id="enviar">
-        <br>
-        <input type="reset" value="Borrar"><br>
+  <article class="list-group" method="post" action=''>
+    <div class="list-group-item active list-header"> <span class="titulo">resultados</span> </div>
+    <div class="list-group-item center"> <span class="icon glyphicon glyphicon-tasks"></span>
+      <ul id="selector">
+        <li class="center">
+          <label>Quiero ver los resultados de:</label>
+        </li>
+        <li class="center">
+          <select name="jugador" id="miselect">
+            <option value="">Seleccione el jugador</option>
+          </select>
+        </li>
+        <input type="submit" value="Ver resultado" id="enviar">
+        <input type="reset" value="Borrar">
         <div id="loader2"><img src="imagenes/cargando.gif" alt="Cargando"></div>
-        <br>
-
+      </ul>
+      <form action="imprimirexcel.php" method="post" target="_blank">
+        <input type="hidden" name="tabla">
+        <input type="hidden" name="jugador">
+        <button type="submit" id='excel' class='btn btn-success' style="display: none;"><span style="margin-right: 10px;" class="glyphicon glyphicon-save"></span>descargar excel</button>
+        <div id="resimp"></div>
+      </form>
+      <div id="despselector" style="display: none;">
+        <div>Elige otro jugador</div>
+        <div class="glyphicon glyphicon-chevron-down"></div>
+      </div>
+      <div id="resactualizar"></div>
+      <div>
+        <table id="resultados" style="with: 100%;"></table>
+      </div>
     </div>
-
-<div id="resactualizar"></div>
-    <div>
-        <table id="resultados"></table>
-    </div>
+  </article>
 </body>
+
 </html>

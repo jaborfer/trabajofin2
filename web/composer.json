@@ -1,0 +1,7 @@
+{
+    "require": {
+        "mongodb/mongodb": "^1.0.0",
+        "phpmailer/phpmailer": "^5.2",
+		"phpexcel/phpexcel": "dev-master"
+    }
+}

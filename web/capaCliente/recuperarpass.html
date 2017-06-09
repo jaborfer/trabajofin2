@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+  <script type="text/javascript" src="js/recuperapass.js"></script>
+</head>
+
+<body>
+  <!--a href="../index.html">principal</a>
+        <br>
+        <a href="crear.html">Quiero crear una cuenta</a-->
+  <form class='login-form panel panel-default' action="" method="post">
+    <div class="panel-heading"> <span class="icon  glyphicon glyphicon-refresh"></span> <span class="titulo">recuperar contraseña</span></div>
+    <div class="panel-body">
+      <input type="hidden" name="funcion" value="recuperapass">
+      <input type="text" name="usuario" id="usuario" placeholder="Usuario">
+      <br>
+      <input type="email" name="mail" id="mail" placeholder="Dirección de Email">
+      <br>
+      <button id="enviar">Recuperar</button>
+      <!--input type="reset" value="Borrar"/-->
+      <div id="loader2" style="display: none;"><img src="imagenes/cargando.gif" alt="Cargando"></div>
+      <div id="resultadologin"></div>
+    </div>
+  </form>
+</body>
+
+</html>

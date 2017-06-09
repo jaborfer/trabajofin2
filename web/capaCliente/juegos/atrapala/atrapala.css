@@ -1,0 +1,16 @@
+#contcuads {
+  display: flex;
+  justify-content: space-around;
+}
+
+#myCanvas {
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.28);
+  background: #f0f0f0;
+}
+
+#vidas {
+  width: 195px;
+  height: 30px;
+  margin: auto;
+  margin-bottom: 20px;
+}

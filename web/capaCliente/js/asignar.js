@@ -4,11 +4,11 @@
 $(document).ready(function () {
     var $selectjugador = $('#selectjugador');
     var $selectrutina = $('#selectrutina');
-    var $loader2 = $("#loader");
+    //var $loader2 = $("#loader");
     var $resactualizar = $("#resactualizar");
     var $enviar = $("#enviar");
     var jugadorseleccionado;
-    $loader2.toggle("fast");
+    //$loader2.slideUp("fast");
     $selectrutina.attr("disabled", true);
     $enviar.attr("disabled", true);
     creaselectjugador();
@@ -17,24 +17,15 @@ $(document).ready(function () {
     $selectjugador.change(function () {
         traerutinadeljugador();
         $selectrutina.attr("disabled", false);
-        if ($selectrutina.val()!="Seleccione la rutina"){
-            $enviar.attr("disabled", false);
-        } else {
-            $enviar.attr("disabled", true);
-        }
-
-    });
-    $selectrutina.change(function () {
-        if ($selectrutina.val()!="Seleccione la rutina"){
-            $enviar.attr("disabled", false);
-        } else {
-            $enviar.attr("disabled", true);
-        }
     });
 
     function traerutinadeljugador() {
         jugadorseleccionado = $selectjugador.val();
-        envio = {"funcion": "traedocumento", "tipo": "jugador", "jugador": jugadorseleccionado};
+        envio = {
+            "funcion": "traedocumento"
+            , "tipo": "jugador"
+            , "jugador": jugadorseleccionado
+        };
         $.ajax({
             url: "../capaServer/gestionjugadores.php"
             , async: true
@@ -42,12 +33,11 @@ $(document).ready(function () {
             , data: envio
             , timeout: 2000
             , success: function (respuestajson) {
-
                 var respuesta = $.parseJSON(respuestajson);
                 $("#selectrutina option").filter(function () {
                     return $(this).text() == respuesta["rutina"];
                 }).prop('selected', true);
-
+                $enviar.attr("disabled", false);
             }
             , error: function () {
                 $resactualizar.empty().append("Error en la comunicación con el servidor");
@@ -56,7 +46,9 @@ $(document).ready(function () {
     }
 
     function creaselectjugador() {
-        var envio = {"funcion": "listado"};
+        var envio = {
+            "funcion": "listado"
+        };
         $.ajax({
             url: "../capaServer/gestionjugadores.php"
             , async: true
@@ -76,7 +68,10 @@ $(document).ready(function () {
     }
 
     function crearselectrutina() {
-        var envio = {"funcion": "listado", "coleccion": "rutina"};
+        var envio = {
+            "funcion": "listado"
+            , "coleccion": "rutina"
+        };
         $.ajax({
             url: "../capaServer/gestionjuegos.php"
             , async: true
@@ -95,28 +90,33 @@ $(document).ready(function () {
         });
     }
 
-        $enviar.click(function () {
-            var rutinaseleccionada = $selectrutina.val();
-            var envio = {"funcion": "actualizarrutina", "jugador": jugadorseleccionado, "rutina": rutinaseleccionada};
-            $.ajax({
-                url: "../capaServer/gestionjugadores.php"
-                , async: true
-                , type: 'post'
-                , data: envio
-                , timeout: 2000
-                , success: function (respuesta) {
-                    $selectjugador.attr("disabled", false);
-                    $selectrutina.attr("disabled", true);
-                    $enviar.attr("disabled", true);
-                    if (respuesta=="ok") {
-                        $resactualizar.empty().append("actualizado correctamente");
-                    } else {
-                        $resactualizar.empty().append("error al actualizar, codigo"+respuesta);
-                    }
+    $enviar.click(function () {
+        var rutinaseleccionada = $selectrutina.val();
+        var envio = {
+            "funcion": "actualizarrutina"
+            , "jugador": jugadorseleccionado
+            , "rutina": rutinaseleccionada
+        };
+        $.ajax({
+            url: "../capaServer/gestionjugadores.php"
+            , async: true
+            , type: 'post'
+            , data: envio
+            , timeout: 2000
+            , success: function (respuesta) {
+                $selectjugador.attr("disabled", false);
+                $selectrutina.attr("disabled", true);
+                $enviar.attr("disabled", true);
+                if (respuesta == "ok") {
+                    $resactualizar.empty().append("actualizado correctamente");
                 }
-                , error: function () {
-                    $resactualizar.empty().append("Error en la comunicación con el servidor");
+                else {
+                    $resactualizar.empty().append("error al actualizar, codigo" + respuesta);
                 }
-            });
+            }
+            , error: function () {
+                $resactualizar.empty().append("Error en la comunicación con el servidor");
+            }
         });
+    });
 });

@@ -2,39 +2,43 @@
 <html lang="es">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
-	<script src="js/crearjugador.js"></script>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/estilo-panel.css">
+  <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+  <script src="js/crearjugador.js"></script>
 </head>
 
 <body>
-	<div id="formulario">
-	<form action="../capaServer/gestionjugadores.php" method="post">
-		<input type="hidden" name="funcion" value="guardar">
-		<p>Esta información es publica y la podrá ver el jugador</p>
-		<label>nombre del jugador:</label>
-		<input type="text" name="jugador" id="jugador">
-		<div id="loader"><img src="imagenes/cargando.gif" alt="Cargando"></div>
-		<div id="resultadoBuscar"></div>
-		<br>
-		<p>Esta información es privada y solo la podrán ver los administradores</p>
-		<label>edad:</label>
-		<input type="number" name="edad" id="edad" min="0" max="105" value="50">
-		<br>
-		<label>enfermedad:</label>
-		<input type="text" name="enfermedad" id="enfermedad">
-		<br>
-		<label>Notas privadas</label><br>
-		<textarea name="notas" id="notas" cols="30" rows="10">Notas personales sobre el jugador . . .</textarea><br>
-		<button id="enviar">Crear</button><br>
-		<input type="reset" value="Borrar"><br>
-		<div id="loader2"><img src="imagenes/cargando.gif" alt="Cargando"></div>
-		<br>
-	</form>
-	</div>
-	<div id="resultadoAnadir"></div>
-	<div id="listado"></div>
+  <div id="formulario">
+    <form action="../capaServer/gestionjugadores.php" method="post" class="list-group">
+      <input type="hidden" name="funcion" value="guardar">
+      <div class="list-group-item active list-header"> <span class="titulo">crear jugador</span> </div>
+      <div class=" list-group-item"> <span class="icon glyphicon glyphicon-user"></span>
+        <div class="centradorv">
+          <p>Información pública: vista por el jugador</p>
+          <input type="text" name="jugador" id="jugador" placeholder="Nombre del jugador">
+          <div id="loader"><img src="imagenes/cargando.gif" alt="Cargando"></div>
+          <div id="resultadoBuscar"></div>
+          <div class="centradorv">
+            <p>Información privada: oculta al jugador</p>
+            <div class="centradorh">
+              <input type="number" name="edad" id="edad" min="0" max="105" placeholder="Edad">
+              <input type="text" name="enfermedad" id="enfermedad" placeholder="Enfermedad"> </div>
+            <textarea name="notas" id="notas" cols="30" rows="10">Notas personales sobre el jugador . . .</textarea>
+            <br>
+            <div class="centradorh">
+              <button id="enviar">Crear</button>
+              <input type="reset" value="Borrar"> </div>
+          </div>
+        </div>
+        <div id="loader2"><img src="imagenes/cargando.gif" alt="Cargando"></div>
+      </div>
+    </form>
+  </div>
+  <div id="resultadoAnadir"></div>
+  <div id="listado"></div>
 </body>
 
 </html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="sudoku01.css">
+  <link rel="stylesheet" href="../../css/comun-juegos.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="sudoku01.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <br>
+    <div class="alert alert-info">Realiza el siguiente Sudoku</div>
+    <div class="escalador">
+      <div class="contcuads">
+        <div class="cuadrado" style="display: none;">
+          <div class="subcuadrado" data-sol="1">
+            <div class="subsub" data-row="1" data-col="1"></div>
+            <div class="subsub" data-row="1" data-col="2"></div>
+            <div class="subsub" data-row="2" data-col="1"></div>
+            <div class="subsub" data-row="2" data-col="2"></div>
+          </div>
+          <div class="subcuadrado" data-sol="2">
+            <div class="subsub" data-row="1" data-col="3"></div>
+            <div class="subsub" data-row="1" data-col="4"></div>
+            <div class="subsub" data-row="2" data-col="3"></div>
+            <div class="subsub" data-row="2" data-col="4"></div>
+          </div>
+          <div class="subcuadrado" data-sol="3">
+            <div class="subsub" data-row="3" data-col="1"></div>
+            <div class="subsub" data-row="3" data-col="2"></div>
+            <div class="subsub" data-row="4" data-col="1"></div>
+            <div class="subsub" data-row="4" data-col="2"></div>
+          </div>
+          <div class="subcuadrado" data-sol="4">
+            <div class="subsub" data-row="3" data-col="3"></div>
+            <div class="subsub" data-row="3" data-col="4"></div>
+            <div class="subsub" data-row="4" data-col="3"></div>
+            <div class="subsub" data-row="4" data-col="4"></div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="contcuads">
+        <div class="pulsador" style="visibility: hidden;">
+          <div class="instr">Elige el número:</div>
+          <div class="numpul">1</div>
+          <div class="numpul">2</div>
+          <div class="numpul">3</div>
+          <div class="numpul">4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="underesult" style="display:none;"></div>
+  <div id="solucion" class="alert result alert-success" style="display:none;"></div>
+</body>
+
+</html>

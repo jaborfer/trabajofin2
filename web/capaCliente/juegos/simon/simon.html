@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="simon.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <link rel="stylesheet" href="../../css/comun-juegos.css">
+  <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="simon.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <br>
+    <div class="alert alert-info">Repite las secuencias. Cada vez que completes una, se añadirá un paso más.</div>
+    <div id="contcuads">
+      <div id="base">
+        <div class="panel" id="p1" data-sol="0">
+          <audio preload="auto" class="sound1">
+            <source src="audio/0.mp3" type="audio/mpeg" /> </audio>
+        </div>
+        <div class="panel" id="p2" data-sol="1">
+          <audio preload="auto" class="sound2">
+            <source src="audio/1.mp3" type="audio/mpeg" /> </audio>
+        </div>
+        <div class="panel" id="p3" data-sol="2">
+          <audio preload="auto" class="sound3">
+            <source src="audio/2.mp3" type="audio/mpeg" /> </audio>
+        </div>
+        <div class="panel" id="p4" data-sol="3">
+          <audio preload="auto" class="sound4">
+            <source src="audio/3.mp3" type="audio/mpeg" /> </audio>
+        </div>
+        <div id="boton" class="btn btn-default">EMPEZAR</div>
+      </div>
+    </div>
+    <div class="underesult" style="display:none;"></div>
+    <div id="solucion" class="alert result alert-success" style="display:none;"></div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+form {
+  margin: 100px auto auto auto;
+  width: 370px;
+}
+
+body {
+  background: url(../imagenes/bkg.jpg) !important;
+  background-repeat: no-repeat;
+}

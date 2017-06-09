@@ -1,0 +1,78 @@
+body {
+  background: rgb(0, 0, 0, 0.5) !important;
+}
+
+#contcuads {
+  display: flex;
+  justify-content: center;
+}
+
+.cuadrado {
+  width: 650px;
+  height: 325px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  transition: 0.2s;
+}
+
+.subcuadrado {
+  width: 150px;
+  height: 150px;
+  transition: 0.2s;
+}
+
+.on {
+  background: #fadd61;
+}
+
+.sel {
+  transition: 0.35s;
+}
+
+.alert-info {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  width: 100%;
+}
+
+
+
+
+body {
+  background: rgba(255, 255, 255, 0.34) !important;
+}
+
+td {
+  height: 80px;
+  width: 54px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat !important;
+}
+
+#tabla1,
+#tabla2,
+#tabla3 {
+  position: absolute;
+  top: 15%;
+}
+
+#tabla2 {
+  margin-top: 7px;
+}
+
+#tabla3 {
+  margin-top: 14px;
+}
+
+.nosel {
+  background: transparent !important;
+}
+
+button {
+  position: absolute;
+  bottom: 100px;
+  right: 20px;
+}

@@ -1,60 +1,61 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+  <link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.css">
+  <link rel="stylesheet" href="css/estilo-panel.css" /> </head>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="js/jquery-ui-1.12.1/jquery-ui.css">
-    <link rel="stylesheet" href="css/crearrutina.css">
-</head>
 <body>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-6">
-            <label for="mirutina">Nombre:</label>
-            <select name="tipo" id="mirutina">
-                <option value="">Seleccione la rutina</option></select>
+  <article class="list-group extraw">
+    <input type="hidden" name="funcion" value="guardar">
+    <div class="list-group-item active list-header"> <span class="titulo">modificar rutinas</span> </div>
+    <div class=" list-group-item"> <span class="icon glyphicon glyphicon-transfer"></span>
+      <ul>
+        <li class="centradoh">
+          <select name="tipo" id="mirutina" class="selectlargo">
+            <option value="">Seleccione la rutina</option>
+          </select>
+          <select name="tipo" id="miselect" class="selectlargo">
+            <option value="">Seleccione tipo de juego a añadir</option>
+          </select>
+        </li>
+        <li class="centradov">
+          <div id="loader" style="display: none;"><img src="imagenes/cargando.gif" alt="Cargando"></div>
+          <div id="respuesta"></div>
+        </li>
+        <div class="row">
+          <div class="col-sm-12">
+            <p>modifique los juegos y pulse
+              <button id="grabar">Guardar</button>
+            </p>
+            <p>los juegos que quiera quitar de la rutina, peguelos en la columna derecha</p>
+          </div>
         </div>
-        <div class="col-sm-6">
-            <label for="miselect">Tipo:</label>
-            <select name="tipo" id="miselect">
-                <option value="">Seleccione el tipo</option>
-            </select>
-        </div>
-
+        <li class="spacea">
+          <div class="columna" id="listarutina">
+            <br>
+            <br> </div>
+          <div class="columna" id="juegos">
+            <p>lista de juegos</p>
+            <br>
+            <br>
+            <!--<div class='cajajuego'><div class='cajajuego-cabecera'>Juego</div><div class='cajajuego-cuerpo'>La caña de españa</div></div>--></div>
+        </li>
+      </ul>
     </div>
-    <div class="row"><div class="col-sm-12"><div id="loader"><img src="imagenes/cargando.gif" alt="Cargando"></div><div id="respuesta"></div></div></div>
-    <div class="row"><div class="col-sm-12"><p>modifique los juegos y pulse<button id="grabar">Guardar</button></p><p>los juegos que quiera quitar de la rutina, peguelos en la columna derecha</p></div></div>
-    <div class="row">
-        <div class="col-sm-6">
-       <div class="columna" id="listarutina"></p></br></br>
-
-       </div>
-
-        </div>
-        <div class="columna" id="juegos">
-            <p>lista de juegos</p></br></br>
-            <!--<div class='cajajuego'><div class='cajajuego-cabecera'>Juego</div><div class='cajajuego-cuerpo'>La caña de españa</div></div>-->
-
-        </div>
-        <div class="row"></div>
-
-    </div>
-
-
-</div>
-
-<!-- jQuery first, then Tether, then Bootstrap JS. -->
-<script src="js/jquery-3.2.0.min.js"></script>
-<script src="js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
-<script src="js/modificarutina.js"></script>
+  </article>
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  <script src="js/jquery-3.2.0.min.js"></script>
+  <script src="js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+  <script src="js/jquery-ui-1.12.1/jquery.ui.touch-punch.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="js/modificarutina.js"></script>
 </body>
+
 </html>

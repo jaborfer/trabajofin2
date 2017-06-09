@@ -13,9 +13,10 @@ setlocale(LC_ALL,"es_ES");
 
 //
 //LINEAS DE PRUEBAS BORRAR AL FINAL
-//$_SESSION['usuarioactivo'] = "manolito";
-//$_SESSION['jugadorseleccionado'] = "jugador1";
-//$_POST['funcion'] = "puntuacion";
+//$_SESSION['usuarioactivo'] = "pepito";
+//$_SESSION['jugadorseleccionado'] = "pruebafamilia";
+//$_POST['jugador']="manolito";
+//$_POST['funcion'] = "recuperafamilia";
 //$_POST['coleccion'] = "rutina";
 //$_POST['nombre']="rutina1";
 //$_POST['juegos']='["Juego1","Juego2","Juego3"]';
@@ -89,11 +90,13 @@ if (isset($_POST['funcion'])) {
             $condicion = ["nombre" => $nombre, "usuario" => $usuario];
             $modificacion = ['juegos' => $juegos];
             $comprobacion = $mibase->modifica("rutina", $condicion, $modificacion);
-            if ($comprobacion != 1) {
-                echo("Error al actualizar la rutina " . $nombre . "  codigo " . $comprobacion);
-            } else {
+            if ($comprobacion == 1) {
                 echo("correcto");
-            }
+            } else if ($comprobacion==0){
+                echo("No se realizó ningún cambio en la rutina");
+            } else {
+        echo("Error al actualizar la rutina " . $nombre . "  codigo " . $comprobacion);
+    }
             break;
         case "borrar":
             $rutina = $_POST['rutina'];
@@ -146,6 +149,49 @@ if (isset($_POST['funcion'])) {
                 array_push($envio,$partida);
             }
             echo(json_encode($envio));
+            break;
+        case "guardafamilia":
+            $jugador = $_POST['jugador'];
+            $foto11 = $_POST['foto11'];
+            $foto12 = $_POST['foto12'];
+            $foto21 = $_POST['foto21'];
+            $foto22 = $_POST['foto22'];
+            $foto31 = $_POST['foto31'];
+            $foto32 = $_POST['foto32'];
+            $foto41 = $_POST['foto41'];
+            $foto42 = $_POST['foto42'];
+            $colección="juegofamilia";
+            $dato= ['usuario'=>$usuario,
+                'jugador'=>$jugador,
+                'foto11'=>$foto11,
+                'foto12'=>$foto12,
+                'foto21'=>$foto21,
+                'foto22'=>$foto22,
+                'foto31'=>$foto31,
+                'foto32'=>$foto32,
+                'foto41'=>$foto41,
+                'foto42'=>$foto42,
+            ];
+            $comprobacion = $mibase->inserta('juegofamilia', $dato);
+            if ($comprobacion == 1) {
+                echo('Guardado correctamente');
+            } else {
+                echo('error al guardar en la base de datos');
+            }
+
+
+            break;
+        case "recuperafamilia":
+            $jugador = $_SESSION['jugadorseleccionado'];
+            $respuesta = [];
+            $objeto = ['usuario' => $usuario, 'jugador' => $jugador];
+            $cursor = $mibase->busca('juegofamilia', $objeto);
+            $dato = $cursor->toArray();//lo convertimos en array para que sea más facil su manejo
+            unset($dato[0]["_id"]);//le quitamos los datos que no me interesan
+            unset($dato[0]["usuario"]);
+            unset($dato[0]["jugador"]);
+            echo json_encode($dato[0]);
+
             break;
 
     };

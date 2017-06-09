@@ -1,28 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
-    <script type="text/javascript" src="js/confacceso.js"></script>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/estilo-panel.css">
+  <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+  <script type="text/javascript" src="js/confacceso.js"></script>
+  <link rel="stylesheet" href="css/estilo-panel.css"> </head>
+<style>
 
-</head>
+</style>
+
 <body>
-<form action="../capaServer/gestionjugadores.php" method="post">
+  <form action="../capaServer/gestionjugadores.php" method="post" class="list-group">
+    <div class="list-group-item active list-header"> <span class="titulo">configurar método de acceso</span> </div>
     <input type="hidden" name="funcion" value="acceso">
-    <input type="radio" name="opciones" value="juegos" id="juegos"><label>Quiero que el dispositivo vaya directamente a los juegos de:</label>
-    <select name="jugador" id="miselect">
-        <option value="">Seleccione el jugador</option>
-    </select><br/><br/>
-    <input type="radio" name="opciones" value="standard" id="standard"><label>Quiero que el dispositivo no guarde información (yo me atentificaré):</label>
-    <br> <input type="submit" value="Modificar" id="enviar">
-        <br>
-        <input type="reset" value="Borrar"><br>
-        <div id="loader2"><img src="imagenes/cargando.gif" alt="Cargando"></div>
-        <br>
-
+    <div class="list-group-item center"> <span class="icon glyphicon glyphicon-tasks"></span>
+      <ul class="radio">
+        <li>
+          <input type="radio" name="opciones" value="juegos" id="juegos">
+          <label for="juegos">El dispositivo se inicia con el jugador:</label>
+          <div class="check"></div>
+          <label></label>
+        </li>
+        <li class="noradio">
+          <select name="jugador" id="miselect">
+            <option value="">Seleccione el jugador</option>
+          </select>
+        </li>
+        <li>
+          <input type="radio" name="opciones" value="standard" id="standard">
+          <label for="standard">El dispositivo no guarda información (yo me autentificaré):</label>
+          <div class="check">
+            <div class="inside"></div>
+          </div>
+        </li>
+      </ul>
+      <input type="submit" value="Modificar" id="enviar">
+      <input type="reset" value="Borrar">
+      <br>
+      <div id="loader2"><img src="imagenes/cargando.gif" alt="Cargando"></div>
+      <div id="resactualizar"></div>
     </div>
-</form>
-<div id="resactualizar"></div>
+  </form>
 </body>
+
 </html>

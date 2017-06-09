@@ -1,0 +1,72 @@
+.alert-info {
+  background: rgb(105, 204, 231) !important;
+}
+
+.alert-danger {
+  background: rgb(231, 105, 105) !important;
+}
+
+.alert-success {
+  background: rgb(68, 195, 83) !important;
+}
+
+div.alert {
+  border-radius: 0px !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) !important;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  border: 0px !important;
+  text-align: center;
+}
+
+div.alert.result {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 80%;
+  height: 60%;
+  opacity: 0.7;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  margin: 0;
+  flex-direction: column;
+  z-index: 10000;
+}
+
+div.underesult {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  background: white;
+}
+
+body {
+  background: rgba(255, 255, 255, 0.34) !important;
+  height: 90vh;
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+.container,
+.container-fluid {
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+body {
+  margin: 0 !important;
+}

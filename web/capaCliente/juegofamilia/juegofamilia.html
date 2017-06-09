@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego Familia</title>
+    <script src="../js/jquery-3.2.0.min.js"></script>
+    <script src="js/juegofamilia.js"></script>
+</head>
+<body>
+<form action="../../capaServer/gestionjuegos.php" method="post">
+    </br></br>
+    <label>Juego para el Jugador:</label> <select name="jugador" id="selectjugador">
+    <option value="">Seleccione el jugador</option>
+</select>
+    <input type="hidden" name="funcion" value="guardafamilia">
+    <fieldset>
+        <legend>Pareja 1</legend>
+        <label for="foto11">Primera foto:</label><input type="text" name="foto11" id="foto11">
+        <label for="foto12">Segunda foto:</label><input type="text" name="foto12" id="foto12">
+    </fieldset>
+</br></br>
+    <fieldset>
+        <legend>Pareja 2</legend>
+        <label for="foto21">Primera foto:</label><input type="text" name="foto21" id="foto21">
+        <label for="foto22">Segunda foto:</label><input type="text" name="foto22" id="foto22">
+    </fieldset>
+    </br></br>
+    <fieldset>
+        <legend>Pareja 3</legend>
+        <label for="foto31">Primera foto:</label><input type="text" name="foto31" id="foto31">
+        <label for="foto32">Segunda foto:</label><input type="text" name="foto32" id="foto32">
+    </fieldset>
+    </br></br>
+    <fieldset>
+        <legend>Pareja 4</legend>
+        <label for="foto41">Primera foto:</label><input type="text" name="foto41" id="foto41">
+        <label for="foto42">Segunda foto:</label><input type="text" name="foto42" id="foto42">
+    </fieldset>
+    <input type="submit" value="Submit">
+    <input type="reset" value="Borrar">
+
+</form>
+<div id="respuesta"></div>
+</body>
+</html>

@@ -5,17 +5,22 @@
  * Date: 03/04/2017
  * Time: 5:45
  */
+//error_reporting(E_ERROR);
+
 require 'BBDD.php';
-ini_set('session.cookie_lifetime',3000000 );
+require '../vendor/autoload.php';
 session_start();
 $mibase = new BBDD();
 //
 //LINEAS DE PRUEBAS BORRAR AL FINAL
-//$_POST['funcion']="actualizarrutina";
+//$_POST['funcion']="recuperapass";
 //$_POST['tipo']="cuidador";
-//$_SESSION['usuarioactivo']="manolito";
-//$_POST['jugador']="eltercero";
+//$_POST['opciones']="juegos";
+//$_POST['usuario']="pruebapass";
+//$_SESSION['usuarioactivo']="pepito";
+//$_POST['jugador']="manolito";
 //$_POST['rutina']="rutina1";
+//$_POST['mail']="jaborfer@gmail.com";
 //HASTA AQUI
 //
 if (isset($_POST['funcion'])) {
@@ -216,24 +221,21 @@ if (isset($_POST['funcion'])) {
             }//aqui va el código para borrar los usuarios
             break;
         case "acceso":
+
             $opcion = $_POST['opciones'];
             if ($opcion == "standard") {
-                if (isset($_POST['jugador'])) { //esto es para ir directamente a los juegos
+                if (isset($_POST['jugador'])) {
                     $_SESSION['jugadorseleccionado'] = $_POST['jugador'];
                 }
-                $inicio = ["autojuego" => "no"]; // esta es la banderia para que vaya directamente a jugar o a la principal
-                $_SESSION['recuerdame'] = $inicio;
+                setcookie('autojuego', "no", time() + 60 * 60 * 24 * 30, "/"); // esta es la banderia para que vaya directamente a jugar o a la principal
                 echo("ok");
             } else if ($opcion == "juegos") {
                 $usuario = $_SESSION['usuarioactivo'];
                 $jugador = $_POST['jugador'];
-                $inicio = [
-                    "usuario" => $usuario,
-                    "jugador" => $jugador,
-                    "autojuego" => "si" // esta es la banderia para que vaya directamente a jugar o a la principal
-                ];
 
-                $_SESSION['recuerdame'] = $inicio;
+                setcookie('usuario', $usuario, time() + 60 * 60 * 24 * 30, "/");
+                setcookie('jugador', $jugador, time() + 60 * 60 * 24 * 30, "/");
+                setcookie('autojuego', "si", time() + 60 * 60 * 24 * 30, "/");// esta es la banderia para que vaya directamente a jugar o a la principal
                 echo("ok");
             } else {
                 echo("Error en la transmisión");
@@ -252,5 +254,56 @@ if (isset($_POST['funcion'])) {
                 echo("Se produjo un error al actualizar, inténtelo más tarde");
             }
             break;
+        case "recuperapass":
+            $usuario = $_POST['usuario'];
+            $direccion = $_POST['mail'];
+            $dato = ['usuario' => $usuario, 'mail' => $direccion];
+            $existe = $mibase->existe("cuidador", $dato);
+            if ($existe) {
+                $cursor = $mibase->busca("cuidador", $dato);
+                $dato = $cursor->toArray();
+                $clave = $dato[0]["pass"];
+               /*email
+                $from = new SendGrid\Email("Web Recuerdos", "dawgrupo@gmail.com");
+                $subject = "Envio de la clave solicitada";
+                $to = new SendGrid\Email("Usuario Olvidadizo", $direccion);
+                $content = new SendGrid\Content("text/plain", "La clave que nos solicitó es ".$clave);
+                $mail = new SendGrid\Mail($from, $subject, $to, $content);
+                //$apiKey = getenv('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');
+                $sg = new \SendGrid('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');
+                $resultado = $sg->client->mail()->send()->post($mail);
+                $resultado->statusCode();
+                print_r($response->headers());
+                echo $response->body();*/
+                $mail = new PHPMailer;
+
+                //$mail->SMTPDebug = 1;                               // Enable verbose debug output
+                $mail->isSMTP();                                      // Set mailer to use SMTP
+                $mail->Host = 'smtp.sendgrid.net';  // Specify main and backup SMTP servers
+                $mail->SMTPAuth = true;                               // Enable SMTP authentication
+                $mail->Username = 'app68737128@heroku.com';                 // SMTP username
+                $mail->Password = '7ycgogiz6168';                           // SMTP password
+                $mail->SMTPSecure = 'plain';                            // Enable TLS encryption, `ssl` also accepted
+                $mail->Port = 587;                                    // TCP port to connect to
+
+                $mail->setFrom('dawgrupo@gmail.com', 'Recuerdos web');
+                $mail->addAddress($direccion, 'Usuario Olvidadizo');     // Add a recipient
+                $mail->isHTML(true);                                  // Set email format to HTML
+
+                $mail->Subject = 'Envio de contraseñas';
+                $mail->Body    = "La contraseña que nos ha solicitado es <b>".$clave."</b>";
+                $mail->AltBody = 'La contraseña que nos ha solicitado es '.$clave;
+
+                if (!$mail->send()) {
+                    echo "Error: " . $mail->ErrorInfo;
+                } else {
+                    echo "ok";
+                }
+
+            } else {
+                echo "No existe ningún usuario con ese correo";
+            }
+            break;
+
     }
 }

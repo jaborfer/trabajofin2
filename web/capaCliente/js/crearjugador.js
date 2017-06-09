@@ -14,8 +14,8 @@ $(document).ready(function () {
     $resanadir = $("#resultadoAnadir");
     $listado = $("#listado");
     chknombre = false;
-    $loader.toggle("fast");
-    $loader2.toggle("fast");
+    $loader.slideUp("fast");
+    $loader2.slideUp("fast");
     $enviar.attr("disabled", true);
     $notas.focus(function () {
         $notas.text("");
@@ -34,50 +34,59 @@ $(document).ready(function () {
     });
     $jugador.blur(function () {
 
-        $loader.toggle("fast");
+        $loader.slideDown("fast");
         var valorJugador = $("#jugador").val();
-        envio = {"funcion": "comprobar","jugador": valorJugador};
+        if (valorJugador=!"") {
+            envio = {
+                "funcion": "comprobar",
+                "jugador": valorJugador
+            };
 
-        $.ajax({
-            url: "../capaServer/gestionjugadores.php"
-            , async: true
-            , type: 'post'
-            , data: envio
-            , timeout: 2000
-            , success: function (ok) {
+            $.ajax({
+                url: "../capaServer/gestionjugadores.php",
+                async: true,
+                type: 'post',
+                data: envio,
+                timeout: 2000,
+                success: function (ok) {
 
-                if (ok == "valido") {
-                    $respuesta.empty().append("Nombre disponible");
-                    chknombre = true;
-                } else if (ok == "invalido") {
-                    $respuesta.empty().append("Nombre usado, elija otro");
+                    if (ok == "valido") {
+                        $respuesta.empty().append("Nombre disponible");
+                        chknombre = true;
+                    } else if (ok == "invalido") {
+                        $respuesta.empty().append("Nombre usado, elija otro");
+                        chknombre = false;
+                    } else {
+                        $respuesta.empty().append("Error " + ok);
+                        chknombre = false;
+                    }
+                },
+                error: function () {
+                    $respuesta.empty().append("Error en la comunicación con el servidor");
                     chknombre = false;
-                } else {
-                    $respuesta.empty().append("Error "+ok);
-                    chknombre = false;
+                },
+                complete: function () {
+                    $loader.slideUp("fast");
+                    comprueba();
                 }
-            }
-            , error: function () {
-                $respuesta.empty().append("Error en la comunicación con el servidor");
-                chknombre = false;
-            }
-            , complete: function () {
-                $loader.toggle("fast");
-                comprueba();
-            }
-        });
+            });
+        } else {
+            $respuesta.empty().append("El nombre no puede estar vacio");
+            chknombre = false;
+            $loader.slideUp("fast");
+        }
     });
 
     $("form").submit(function () {
         $resanadir.empty();
-        $loader2.toggle("fast");
+        $loader2.slideDown("fast");
         $.ajax({
-            url: $("form").attr("action")
-            , async: true
-            , type: 'post'
-            , data: $("form").serialize()
-            , timeout: 2000
-            , success: function ($respuesta) {
+            url: $("form").attr("action"),
+            async: true,
+            type: 'post',
+            data: $("form").serialize(),
+            timeout: 2000,
+            success: function ($respuesta) {
                 if ($respuesta == "ok") {
                     $divformulario.toggle("fast");
                     var valorJugador = $("#jugador").val();
@@ -88,41 +97,48 @@ $(document).ready(function () {
                     $resanadir.empty().append($respuesta);
                 }
 
-            }
-            , error: function () {
+            },
+            error: function () {
                 $resanadir.empty().append("Error en la carga AjAx, por favor recargue la página e intentelo de nuevo")
-            }
-            , complete: function () {
-                $loader2.toggle("fast");
+            },
+            complete: function () {
+                $loader2.slideUp("fast");
             }
         });
         return false;
     });
+
     function listadojugadores() {
-        envio = {"funcion": "listado"};
+        envio = {
+            "funcion": "listado"
+        };
         $.ajax({
-            url: "../capaServer/gestionjugadores.php"
-            , async: true
-            , data: envio
-            , type: 'post'
-            , timeout: 2000
-            , success: function (listajson) {
+            url: "../capaServer/gestionjugadores.php",
+            async: true,
+            data: envio,
+            type: 'post',
+            timeout: 2000,
+            success: function (listajson) {
                 var lista = $.parseJSON(listajson);
+                console.log(lista);
+
                 $listado.append('<p>Los jugadores creados son:</p>');
                 $listado.append('<ul>');
                 $.each(lista, function (index, value) {
                     $listado.append("<li>" + value + "</li>");
                 });
                 $listado.append('</ul>');
-            }
-            , error: function () {
+            },
+            error: function () {
                 $respuesta.empty().append("Error en la comunicación con el servidor");
                 chknombre = false;
             }
         });
     }
-    function comprueba() {
 
+    function comprueba() {
+        console.log(chknombre);
+        console.log($enfermedad.val() != "");
         if (chknombre && ($enfermedad.val() != "")) {
             $enviar.attr("disabled", false);
         } else {

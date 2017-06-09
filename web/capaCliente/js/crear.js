@@ -13,8 +13,8 @@ $(document).ready(function () {
     var $resanadir = $("#resultadoAnadir");
     var ok;
     var envio;
-    $loader.toggle("fast");
-    $loader2.toggle("fast");
+    $loader.slideUp();
+    $loader2.slideUp();
     $enviar.attr("disabled", "true");
     var correcto = false;
     var chknombre = false
@@ -25,59 +25,75 @@ $(document).ready(function () {
         comprueba();
     });
     $("input:password").keyup(function () {
-
         chkpass = (($pass1.val() == $pass2.val()) && $pass1.val().length > 5);
-
         comprueba()
     });
-
+    $("input:password").blur(function () {
+        if (!chkpass){
+            $respuesta.empty().append("Las contraseñas deben coincidir y tener un mínimo de 6 caracteres");
+        } else {
+            $respuesta.empty();
+        }
+    })
     function comprueba() {
+
         $("#enviar").attr("disabled", !((chkmail && chknombre) && chkpass));
+        if ((chkmail && chknombre) && chkpass){
+    $respuesta.empty();
+        }
     }
 
     $usuario.focus(function () {
         $respuesta.empty();
     });
     $usuario.blur(function () {
-
-
-        $loader.toggle("fast");
+        $loader.slideDown("fast");
         var valorUsuario = $("#usuario").val();
-        envio = {"funcion": "comprobar", "usuario": valorUsuario};
-
-        $.ajax({
-            url: "../capaServer/gestionjugadores.php"
-            , async: true
-            , type: 'post'
-            , data: envio
-            , timeout: 2000
-            , success: function (ok) {
-
-                if (ok == "valido") {
-                    $respuesta.empty().append("Usuario disponible");
-                    chknombre = true;
-                } else if (ok == "invalido") {
-                    $respuesta.empty().append("Usuario usado, elija otro");
-                    chknombre = false;
-                } else {
-                    $respuesta.empty().append("Error");
+        console.log("nombre:" + valorUsuario + ":");
+        if (valorUsuario != "") {
+            envio = {
+                "funcion": "comprobar"
+                , "usuario": valorUsuario
+            };
+            $.ajax({
+                url: "../capaServer/gestionjugadores.php"
+                , async: true
+                , type: 'post'
+                , data: envio
+                , timeout: 2000
+                , success: function (ok) {
+                    if (ok == "valido") {
+                        $respuesta.empty().append("Usuario disponible");
+                        chknombre = true;
+                    }
+                    else if (ok == "invalido") {
+                        console.log("invalido");
+                        $respuesta.empty().append("Usuario usado, elija otro");
+                        chknombre = false;
+                    }
+                    else {
+                        $respuesta.empty().append("Error");
+                        chknombre = false;
+                    }
+                }
+                , error: function () {
+                    $respuesta.empty().append("Error en la comunicación con el servidor");
                     chknombre = false;
                 }
-            }
-            , error: function () {
-                $respuesta.empty().append("Error en la comunicación con el servidor");
-                chknombre = false;
-            }
-            , complete: function () {
-                $loader.toggle("fast");
-                comprueba();
-            }
-        });
+                , complete: function () {
+                    $loader.slideUp("fast");
+                    comprueba();
+                }
+            });
+        } else {
+            $respuesta.empty().append("El nombre no puede estar vacio");
+            $loader.slideUp("fast");
+            chknombre = false;
+        }
     });
-
     $("form").submit(function () {
         $resanadir.empty();
-        $loader2.toggle("fast");
+        $loader2.slideDown("fast");
         $.ajax({
             url: $("form").attr("action")
             , async: true
@@ -90,16 +106,16 @@ $(document).ready(function () {
                     timer = setTimeout(function () {
                         $(location).attr('href', "panelcontrol.html");
                     }, 3000);
-                } else {
+                }
+                else {
                     $resanadir.empty().append($respuesta);
                 }
-
             }
             , error: function () {
                 $resanadir.empty().append("Error en la carga AjAx, por favor recargue la página e intentelo de nuevo")
             }
             , complete: function () {
-                $loader2.toggle("fast");
+                $loader2.slideUp("fast");
             }
         });
         return false;

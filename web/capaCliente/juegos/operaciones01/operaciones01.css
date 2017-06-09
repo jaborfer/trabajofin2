@@ -1,0 +1,67 @@
+.contcuads {
+  display: flex;
+  justify-content: center;
+}
+
+#operacion,
+#operaciones {
+  text-align: center;
+  font-size: 70px;
+  font-weight: bolder;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+.carta {
+  width: 120px;
+  height: 155px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.41);
+  border-radius: 6px;
+  margin: 0 15px;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  background: white;
+}
+
+.carta-in {
+  border: 2px solid rgba(47, 47, 47, 0.53);
+  width: 95px;
+  height: 125px;
+  background: #fcebce;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  color: black !important;
+}
+
+.glyphicon {
+  font-size: 40px;
+}
+
+.btn.carta:hover {
+  opacity: 0.5
+}
+
+span {
+  font-size: 10px;
+}
+
+.divide {
+  font-size: 50px;
+  font-weight: bolder;
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
+body {
+  background: rgba(255, 255, 255, 0.34) !important;
+}
