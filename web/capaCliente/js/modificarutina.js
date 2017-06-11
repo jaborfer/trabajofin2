@@ -66,7 +66,7 @@ $(document).ready(function () {
       , async: true
       , type: 'post'
       , data: envio
-      , timeout: 2000
+      , timeout: 4000
       , success: function (listajson) {
         listajuegos = $.parseJSON(listajson); // la guardo en una variable general por que luego la lista la necesito
         console.log(listajuegos);
@@ -99,7 +99,7 @@ $(document).ready(function () {
       , async: true
       , type: 'post'
       , data: envio
-      , timeout: 2000
+      , timeout: 4000
       , success: function (listajson) {
         rutinasguardadas = $.parseJSON(listajson);
         $mirutina.empty();
@@ -137,7 +137,7 @@ $(document).ready(function () {
         , async: true
         , type: 'post'
         , data: envio
-        , timeout: 2000
+        , timeout: 4000
         , success: function (ok) {
           if (ok == "correcto") {
             $respuesta.empty().append("Rutina guardada correctamente");

@@ -29,7 +29,7 @@ class ComposerStaticInitb289e40956e7b2516d1504867c3ec8ea
         array (
             'PHPExcel' => 
             array (
-                0 => __DIR__ . '/..' . '/phpexcel/phpexcel/Classes',
+                0 => __DIR__ . '/..' . '/phpoffice/phpexcel/Classes',
             ),
         ),
     );

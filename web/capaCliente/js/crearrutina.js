@@ -17,6 +17,7 @@ $(document).ready(function () {
   poncss();
   $miselect.attr("disabled", true);
   $enviar.click(function () {
+    juegosrutina=[];
     nombrerutina = $("#nombre").val();
     if (nombrerutina != "") {
       envio = {
@@ -28,7 +29,7 @@ $(document).ready(function () {
         , async: true
         , type: 'post'
         , data: envio
-        , timeout: 2000
+        , timeout: 4000
         , success: function (ok) {
           if (ok == "valido") {
             $respuesta.empty().append("Nombre disponible");
@@ -78,7 +79,7 @@ $(document).ready(function () {
       , async: true
       , type: 'post'
       , data: envio
-      , timeout: 2000
+      , timeout: 4000
       , success: function (listajson) {
         listajuegos = $.parseJSON(listajson); // la guardo en una variable general por que luego la lista la necesito
         var aux = [];
@@ -106,7 +107,7 @@ $(document).ready(function () {
             , async: true
             , type: 'post'
             , data: envio
-            , timeout: 2000
+            , timeout: 4000
             , success: function (listajson) {
                 listajuegos = $.parseJSON(listajson); // la guardo en una variable general por que luego la lista la necesito
                 var aux = [];
@@ -144,7 +145,7 @@ $(document).ready(function () {
         , async: true
         , type: 'post'
         , data: envio
-        , timeout: 2000
+        , timeout: 4000
         , success: function (ok) {
           if (ok == "correcto") {
             $respuesta.empty().append("Rutina guardada correctamente");

@@ -33,7 +33,7 @@ $(document).ready(function () {
       , async: true
       , type: 'post'
       , data: envio
-      , timeout: 2000
+      , timeout: 4000
       , success: function (respuestajson) {
         var respuesta = $.parseJSON(respuestajson);
         $mail.val(respuesta["mail"]);
@@ -57,7 +57,7 @@ $(document).ready(function () {
       , async: true
       , type: 'post'
       , data: $("form").serialize()
-      , timeout: 2000
+      , timeout: 4000
       , success: function ($respuesta) {
         if ($respuesta == "ok") {
           $resmodificar.empty().append("Usuario modificado correctamente");

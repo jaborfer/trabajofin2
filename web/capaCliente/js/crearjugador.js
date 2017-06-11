@@ -47,7 +47,7 @@ $(document).ready(function () {
                 async: true,
                 type: 'post',
                 data: envio,
-                timeout: 2000,
+                timeout: 4000,
                 success: function (ok) {
 
                     if (ok == "valido") {
@@ -85,7 +85,7 @@ $(document).ready(function () {
             async: true,
             type: 'post',
             data: $("form").serialize(),
-            timeout: 2000,
+            timeout: 4000,
             success: function ($respuesta) {
                 if ($respuesta == "ok") {
                     $divformulario.toggle("fast");
@@ -117,7 +117,7 @@ $(document).ready(function () {
             async: true,
             data: envio,
             type: 'post',
-            timeout: 2000,
+            timeout: 4000,
             success: function (listajson) {
                 var lista = $.parseJSON(listajson);
                 console.log(lista);

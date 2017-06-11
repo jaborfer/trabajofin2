@@ -26,7 +26,7 @@ $(document).ready(function () {
       , async: true
       , type: 'post'
       , data: envio
-      , timeout: 2000
+      , timeout: 4000
       , success: function (listajson) {
         var lista = $.parseJSON(listajson);
         $.each(lista, function (index, value) {
@@ -51,7 +51,7 @@ $(document).ready(function () {
       , async: true
       , type: 'post'
       , data: envio
-      , timeout: 2000
+      , timeout: 4000
       , success: function (respuestajson) {
         var respuesta = $.parseJSON(respuestajson);
         $edad.val(respuesta["edad"]);
@@ -71,7 +71,7 @@ $(document).ready(function () {
       , async: true
       , type: 'post'
       , data: $("form").serialize()
-      , timeout: 2000
+      , timeout: 4000
       , success: function ($respuesta) {
         if ($respuesta == "ok") {
           $formulario.hide();
@@ -99,7 +99,7 @@ $(document).ready(function () {
           , async: true
           , type: 'post'
           , data: $("form").serialize()
-          , timeout: 2000
+          , timeout: 4000
           , success: function (respuesta) {
               console.log("respuesta= " + respuesta);
               if (respuesta === "ok") {

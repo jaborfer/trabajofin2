@@ -25,7 +25,7 @@ $(document).ready(function () {
             , async: true
             , type: 'post'
             , data: envio
-            , timeout: 2000
+            , timeout: 4000
             , success: function (listajson) {
                 var lista = $.parseJSON(listajson);
                 $.each(lista, function (index, value) {
@@ -50,7 +50,7 @@ $(document).ready(function () {
             , async: true
             , type: 'post'
             , data: envio
-            , timeout: 2000
+            , timeout: 4000
             , success: function (respuestajson) {
                 var aux = $.parseJSON(respuestajson);
                 rutina = aux['rutina'];
@@ -82,7 +82,7 @@ $(document).ready(function () {
             , async: true
             , type: 'post'
             , data: envio
-            , timeout: 2000
+            , timeout: 4000
             , success: function ($respuesta) {
                 if ($respuesta == "ok") {
                       window.parent.location.href = "juego.html";

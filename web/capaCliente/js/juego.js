@@ -8,7 +8,7 @@ $(document).ready(function () {
   var listajuegos = [];
   var juegoactivo = 0;
   var puntuacion;
-  localStorage.setItem("punuacion", "-1");
+  localStorage.setItem("punuacion", "No terminó");
   $cargando.toggle("fast");
   $boton.attr("disabled", true);
   traejuegos();
@@ -40,7 +40,7 @@ $(document).ready(function () {
     if ((juegoactivo > 0) && (juegoactivo <= listajuegos.length + 1)) {
       puntuacion = localStorage.getItem("puntuacion");
       guardapuntos();
-      localStorage.setItem("puntuacion", "-1");
+      localStorage.setItem("puntuacion", "No terminó");
     } else {
       $boton.empty().append("Siguiente");
     }
@@ -78,7 +78,7 @@ $(document).ready(function () {
       async: true,
       type: 'post',
       data: envio,
-      timeout: 2000,
+      timeout: 4000,
       success: function (comprueba) {
         if (comprueba != "correcto") {
           $respuesta.empty().append("Error al guardar los puntos");

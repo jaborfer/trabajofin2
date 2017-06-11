@@ -23,6 +23,14 @@ $mibase = new BBDD();
 //$_POST['mail']="jaborfer@gmail.com";
 //HASTA AQUI
 //
+function creaRutinasBase($usuario,$mibase){
+    $dato = ['nombre' => "Total", 'usuario' => $usuario, 'juegos' => '["atrapala","cuadrados01","parejas01","simon","mahjong01","monedas01","operaciones01","sudoku01","secuencia01"]'];
+    $coleccion="rutina";
+    $mibase->inserta($coleccion, $dato);
+    $dato = ['nombre' => "Memoria", 'usuario' => $usuario, 'juegos' => '["cuadrados01","cuadrados01","parejas01","parejas01"]'];
+    $coleccion="rutina";
+    $mibase->inserta($coleccion, $dato);
+}
 if (isset($_POST['funcion'])) {
     $funcion = $_POST['funcion'];
     switch ($funcion) {
@@ -62,6 +70,7 @@ if (isset($_POST['funcion'])) {
                     $comprueba = $mibase->inserta("cuidador", $dato);
                     if ($comprueba = 1) {
                         $_SESSION['usuarioactivo'] = $usuario;
+                        creaRutinasBase($usuario,$mibase);
                         echo("ok");
                     } else {
                         if (isset($_SESSION['usuarioactivo'])) {
@@ -263,18 +272,7 @@ if (isset($_POST['funcion'])) {
                 $cursor = $mibase->busca("cuidador", $dato);
                 $dato = $cursor->toArray();
                 $clave = $dato[0]["pass"];
-               /*email
-                $from = new SendGrid\Email("Web Recuerdos", "dawgrupo@gmail.com");
-                $subject = "Envio de la clave solicitada";
-                $to = new SendGrid\Email("Usuario Olvidadizo", $direccion);
-                $content = new SendGrid\Content("text/plain", "La clave que nos solicitó es ".$clave);
-                $mail = new SendGrid\Mail($from, $subject, $to, $content);
-                //$apiKey = getenv('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');
-                $sg = new \SendGrid('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');
-                $resultado = $sg->client->mail()->send()->post($mail);
-                $resultado->statusCode();
-                print_r($response->headers());
-                echo $response->body();*/
+
                 $mail = new PHPMailer;
 
                 //$mail->SMTPDebug = 1;                               // Enable verbose debug output

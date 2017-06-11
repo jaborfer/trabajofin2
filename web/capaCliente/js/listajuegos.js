@@ -16,7 +16,8 @@ $(document).ready(function () {
         $latabla.append("<tr><th>nombre</th><th>descripción</th><th>foto</th></tr>");
         $.each(listajuegos, function (index, value) {
             if (value['tipo']==seleccion){
-            $latabla.append("<tr><td>"+value['nombre']+"</td><td>"+value['descripcion']+"</td><td><a href=''> "+value['nombre']+"</a></td></tr>")
+                var lafoto="juegos/"+value['nombre']+"/"+value['nombre']+".png";
+            $latabla.append("<tr><td>"+value['nombre']+"</td><td>"+value['descripcion']+"</td><td><a target='_blank' href='"+lafoto+"'>"+value['nombre']+"</a></td></tr>")
         }});
         $lista.toggle("fast");
     });
@@ -28,7 +29,7 @@ $(document).ready(function () {
             , async: true
             , type: 'post'
             , data: envio
-            , timeout: 2000
+            , timeout: 4000
             , success: function (listajson) {
                 listajuegos= $.parseJSON(listajson);// la guardo en una variable general por que luego la lista la necesito
                 var aux = [];

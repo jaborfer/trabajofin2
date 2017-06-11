@@ -29,7 +29,7 @@ $(document).ready(function () {
         , async: true
         , type: 'post'
         , data: envio
-        , timeout: 2000
+        , timeout: 4000
         , success: function (listajson) {
           $("#enviar").slideUp();
           var listarutina = $.parseJSON(listajson);
@@ -58,7 +58,7 @@ $(document).ready(function () {
       , async: true
       , type: 'post'
       , data: envio
-      , timeout: 2000
+      , timeout: 4000
       , success: function (listajson) {
         var listarutina = $.parseJSON(listajson);
         $.each(listarutina, function (index, value) {
@@ -83,7 +83,7 @@ $(document).ready(function () {
       , async: true
       , type: 'post'
       , data: envio
-      , timeout: 2000
+      , timeout: 4000
       , success: function (respuesta) {
         $resactualizar.empty().append(respuesta);
         $panelaux.hide();

@@ -1,10 +1,12 @@
 <?php
 
-$hoy = date("Y-m-d H:i:s") ;
+$hoy = date("Y_m_d") ;
 
 
-$filename = $_POST["jugador"]." ".$hoy.".xlsx";
-$tabla    = $_POST["tabla"];
+$filename = $_POST["jugador"];
+$filename.="_$hoy.xls";
+
+$tabla = $_POST["tabla"];
 
 
 require_once '../vendor/phpexcel/Classes/PHPExcel.php';

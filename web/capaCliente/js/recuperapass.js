@@ -31,7 +31,7 @@ $(document).ready(function () {
 					$resLogin.empty().append($respuesta);
 					var timer = setTimeout(function () {
 						$(location).attr('href', "inicio.php");
-					}, 2000);
+					}, 4000);
 				} else {
                     $resLogin.empty().append($respuesta);
 				}

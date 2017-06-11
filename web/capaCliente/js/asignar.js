@@ -31,7 +31,7 @@ $(document).ready(function () {
             , async: true
             , type: 'post'
             , data: envio
-            , timeout: 2000
+            , timeout: 4000
             , success: function (respuestajson) {
                 var respuesta = $.parseJSON(respuestajson);
                 $("#selectrutina option").filter(function () {
@@ -54,7 +54,7 @@ $(document).ready(function () {
             , async: true
             , type: 'post'
             , data: envio
-            , timeout: 2000
+            , timeout: 4000
             , success: function (listajson) {
                 var lista = $.parseJSON(listajson);
                 $.each(lista, function (index, value) {
@@ -77,7 +77,7 @@ $(document).ready(function () {
             , async: true
             , type: 'post'
             , data: envio
-            , timeout: 2000
+            , timeout: 4000
             , success: function (listajson) {
                 var listarutina = $.parseJSON(listajson);
                 $.each(listarutina, function (index, value) {
@@ -102,7 +102,7 @@ $(document).ready(function () {
             , async: true
             , type: 'post'
             , data: envio
-            , timeout: 2000
+            , timeout: 4000
             , success: function (respuesta) {
                 $selectjugador.attr("disabled", false);
                 $selectrutina.attr("disabled", true);

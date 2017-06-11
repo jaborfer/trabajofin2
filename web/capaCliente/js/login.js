@@ -23,7 +23,7 @@ $(document).ready(function () {
       , async: true
       , type: 'post'
       , data: $("form").serialize()
-      , timeout: 2000
+      , timeout: 4000
       , success: function ($respuesta) {
         if ($respuesta == "ok") {
           $resLogin.empty().append("Usuario correcto");

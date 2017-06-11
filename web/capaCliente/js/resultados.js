@@ -1,4 +1,4 @@
-/**
+rec/**
  * Created by jabor on 04/04/2017.
  */
 $(document).ready(function () {
@@ -27,7 +27,7 @@ $(document).ready(function () {
       async: true,
       type: 'post',
       data: envio,
-      timeout: 2000,
+      timeout: 4000,
       success: function (listajson) {
         var lista = $.parseJSON(listajson);
         $.each(lista, function (index, value) {
@@ -54,7 +54,7 @@ $(document).ready(function () {
       async: true,
       type: 'post',
       data: envio,
-      timeout: 2000,
+      timeout: 4000,
       success: function ($respuesta) {
         stringtabla = "<table>";
         $selector.slideUp();
