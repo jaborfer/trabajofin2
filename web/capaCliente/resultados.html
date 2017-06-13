@@ -26,8 +26,8 @@
         <input type="reset" value="Borrar">
         <div id="loader2"><img src="imagenes/cargando.gif" alt="Cargando"></div>
       </ul>
-      <form action="imprimirexcel.php" method="post" target="_blank">
-        <input type="hidden" name="tabla">
+      <form action="../capaServer/gestionjuegos.php" method="post" target="_blank">
+        <input type="hidden" name="funcion" value="descargaexcel">
         <input type="hidden" name="jugador">
         <button type="submit" id='excel' class='btn btn-success' style="display: none;"><span style="margin-right: 10px;" class="glyphicon glyphicon-save"></span>descargar excel</button>
         <div id="resimp"></div>

@@ -20,7 +20,7 @@ class BBDD{
    public function __construct()//CONEXION PARA SERVIDOR MLAB
     {
         if(!isset($conexion)){
-            $uri="AQUI VA LA URI";
+            $uri="mongodb://recuerdameclient:mu0056as@ds157500.mlab.com:57500/recuerdame";
 
             $this->client = new MongoDB\Client($uri);
             $this->mibase = $this->client->recuerdame;

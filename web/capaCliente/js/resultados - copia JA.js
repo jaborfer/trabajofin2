@@ -83,6 +83,7 @@ $(document).ready(function () {
       },
       complete: function () {
         $loader2.slideUp("fast");
+        $("[name=tabla]").val(stringtabla);
         $("[name=jugador]").val($miselect.val());
       }
     });

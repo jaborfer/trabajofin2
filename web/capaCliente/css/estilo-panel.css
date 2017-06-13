@@ -831,3 +831,30 @@ footer.creditos div {
   font-size: 13px;
   letter-spacing: 1px;
 }
+
+#latabla td {
+  border-bottom: 1px solid #d1d1d1 !important;
+  height: 70px;
+  vertical-align: middle;
+}
+
+#latabla td,
+#latabla th {
+  text-align: left;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+#latabla>tr:nth-child(1) {
+  background: #cbe3ff;
+}
+
+#latabla>tr>td:nth-child(1) {
+  font-weight: bold;
+  background: #efefef;
+}
+
+.fotolistadojuego {
+  height: 60px;
+  width: 65px;
+}

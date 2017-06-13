@@ -6,10 +6,11 @@
  * Time: 5:45
  */
 require 'BBDD.php';
+require_once '../vendor/phpexcel/Classes/PHPExcel.php';
 session_start();
 $mibase = new BBDD();
 
-setlocale(LC_ALL,"es_ES");
+setlocale(LC_ALL, "es_ES");
 
 //
 //LINEAS DE PRUEBAS BORRAR AL FINAL
@@ -23,7 +24,7 @@ setlocale(LC_ALL,"es_ES");
 // funcion: "actualizar", nombre: "rutina1", juegos: "["Juego5","Juego6","Juego7"]"
 
 $usuario = $_SESSION['usuarioactivo']; //las rutinas son propias de los usuarios
-
+if (!isset($envio)){$envio=[];}
 if (isset($_POST['funcion'])) {
     $funcion = $_POST['funcion'];
     switch ($funcion) {
@@ -62,19 +63,19 @@ if (isset($_POST['funcion'])) {
 
             break;
         case "guardar":
-            if(isset($_POST['juegos'])){
-            $nombre = $_POST['nombre'];
-            $juegos = $_POST['juegos']; //lo guardo directamente como objeto json
-            $dato = ['nombre' => $nombre, 'usuario' => $usuario, 'juegos' => $juegos];
-            $coleccion="rutina";
+            if (isset($_POST['juegos'])) {
+                $nombre = $_POST['nombre'];
+                $juegos = $_POST['juegos']; //lo guardo directamente como objeto json
+                $dato = ['nombre' => $nombre, 'usuario' => $usuario, 'juegos' => $juegos];
+                $coleccion = "rutina";
             } else {
-                $jugador=$_SESSION['jugadorseleccionado'];
-                $juego=$_POST['juego'];
-                $puntuacion=$_POST['puntuacion'];
-                $coleccion="puntuacion";
-                ini_set('date.timezone','Europe/Madrid');
-                $fecha= date( "d-M-Y H:i:s");
-                $dato=['jugador'=>$jugador, 'usuario'=>$usuario, 'juego'=>$juego, 'fecha'=>$fecha, 'resultado'=>$puntuacion];
+                $jugador = $_SESSION['jugadorseleccionado'];
+                $juego = $_POST['juego'];
+                $puntuacion = $_POST['puntuacion'];
+                $coleccion = "puntuacion";
+                ini_set('date.timezone', 'Europe/Madrid');
+                $fecha = date("d-M-Y H:i:s");
+                $dato = ['jugador' => $jugador, 'usuario' => $usuario, 'juego' => $juego, 'fecha' => $fecha, 'resultado' => $puntuacion];
             }
 
             $comprobacion = $mibase->inserta($coleccion, $dato);
@@ -92,11 +93,11 @@ if (isset($_POST['funcion'])) {
             $comprobacion = $mibase->modifica("rutina", $condicion, $modificacion);
             if ($comprobacion == 1) {
                 echo("correcto");
-            } else if ($comprobacion==0){
+            } else if ($comprobacion == 0) {
                 echo("No se realizó ningún cambio en la rutina");
             } else {
-        echo("Error al actualizar la rutina " . $nombre . "  codigo " . $comprobacion);
-    }
+                echo("Error al actualizar la rutina " . $nombre . "  codigo " . $comprobacion);
+            }
             break;
         case "borrar":
             $rutina = $_POST['rutina'];
@@ -108,7 +109,7 @@ if (isset($_POST['funcion'])) {
                 $modificacion = ['rutina' => ""];
                 $comprobacion = $mibase->modifica("jugador", $condicion, $modificacion);
                 if ($comprobacion != $control) {//comprobamos que NO se han "desasignado"correctamente todos los jugadores
-                    echo ("hubo un error en el proceso, intentelo más tarde  codigo " . $comprobacion);
+                    echo("hubo un error en el proceso, intentelo más tarde  codigo " . $comprobacion);
                 }
                 if ($control == 0 || $comprobacion == $control) {
                     $condicion = ['nombre' => $rutina, 'usuario' => $usuario];
@@ -117,36 +118,36 @@ if (isset($_POST['funcion'])) {
                         echo("Rutina borrada correctamente");
                     } else {
 
-                        echo("Error al actualizar la rutina " . $nombre );
+                        echo("Error al actualizar la rutina " . $nombre);
                     }
                 }
             }
             break;
         case "traejuegos":
-            $jugador=$_SESSION['jugadorseleccionado']; //primero recupero la rutina que tiene asignada ese jugador
+            $jugador = $_SESSION['jugadorseleccionado']; //primero recupero la rutina que tiene asignada ese jugador
             $objeto = ['usuario' => $usuario, 'jugador' => $jugador];
             $cursor = $mibase->busca('jugador', $objeto);
             $dato = $cursor->toArray();
-            $rutina=$dato[0]["rutina"];
+            $rutina = $dato[0]["rutina"];
             $objeto = ['usuario' => $usuario, 'nombre' => $rutina];//segundo me traigo la lista de juegos
             $cursor = $mibase->busca('rutina', $objeto);
             $dato = $cursor->toArray();
-            $juegos=$dato[0]["juegos"];
+            $juegos = $dato[0]["juegos"];
             echo($juegos);
             break;
         case "puntuacion":
-            $coleccion="puntuacion";
-            $jugador=$_POST['jugador'];
-            $consulta= array('usuario'=>$usuario, 'jugador'=>$jugador);
-            $projection= array("_id"=>false,"sort"=>array("juego"=>1));
-            $respuesta = $mibase->proyecta($coleccion, $consulta,$projection);
+            $coleccion = "puntuacion";
+            $jugador = $_POST['jugador'];
+            $consulta = array('usuario' => $usuario, 'jugador' => $jugador);
+            $projection = array("_id" => false, "sort" => array("juego" => 1));
+            $respuesta = $mibase->proyecta($coleccion, $consulta, $projection);
 
-            $envio=[];
-            foreach ($respuesta as $dato){
-                $partida['juego']=$dato['juego'];
-                $partida['fecha']=$dato['fecha'];
-                $partida['resultado']=$dato['resultado'];
-                array_push($envio,$partida);
+            $envio = [];
+            foreach ($respuesta as $dato) {
+                $partida['juego'] = $dato['juego'];
+                $partida['fecha'] = $dato['fecha'];
+                $partida['resultado'] = $dato['resultado'];
+                array_push($envio, $partida);
             }
             echo(json_encode($envio));
             break;
@@ -160,17 +161,17 @@ if (isset($_POST['funcion'])) {
             $foto32 = $_POST['foto32'];
             $foto41 = $_POST['foto41'];
             $foto42 = $_POST['foto42'];
-            $colección="juegofamilia";
-            $dato= ['usuario'=>$usuario,
-                'jugador'=>$jugador,
-                'foto11'=>$foto11,
-                'foto12'=>$foto12,
-                'foto21'=>$foto21,
-                'foto22'=>$foto22,
-                'foto31'=>$foto31,
-                'foto32'=>$foto32,
-                'foto41'=>$foto41,
-                'foto42'=>$foto42,
+            $colección = "juegofamilia";
+            $dato = ['usuario' => $usuario,
+                'jugador' => $jugador,
+                'foto11' => $foto11,
+                'foto12' => $foto12,
+                'foto21' => $foto21,
+                'foto22' => $foto22,
+                'foto31' => $foto31,
+                'foto32' => $foto32,
+                'foto41' => $foto41,
+                'foto42' => $foto42,
             ];
             $comprobacion = $mibase->inserta('juegofamilia', $dato);
             if ($comprobacion == 1) {
@@ -193,6 +194,69 @@ if (isset($_POST['funcion'])) {
             echo json_encode($dato[0]);
 
             break;
+        case "descargaexcel":
+            $objPHPExcel = new PHPExcel();
+            $hoy = date("Y_m_d");
+            $jugador = $_POST["jugador"];
+            $filename = $jugador . "_". $hoy.".xls";
+
+            $coleccion = "puntuacion";
+            $jugador = $_POST['jugador'];
+            $consulta = array('usuario' => $usuario, 'jugador' => $jugador);
+            $projection = array("_id" => false, "sort" => array("juego" => 1));
+            $respuesta = $mibase->proyecta($coleccion, $consulta, $projection);
+
+            $envio = [];
+            foreach ($respuesta as $dato) {
+                $partida['juego'] = $dato['juego'];
+                $partida['fecha'] = $dato['fecha'];
+                $partida['resultado'] = $dato['resultado'];
+                array_push($envio, $partida);
+            }
+
+            $objPHPExcel->getProperties()->setCreator("JO-JO Software")
+                ->setLastModifiedBy("JO-JO")
+                ->setTitle("Puntuaciones de " . $jugador)
+                ->setSubject("Office 2007 XLSX Test Document")
+                ->setDescription("resultados de los juegos de la web recuerdame");
+            $juegoaux = "";
+            $numfila = 2;
+            $objPHPExcel->setActiveSheetIndex(0)
+                ->setCellValue('A1', "Juego")
+                ->setCellValue('B1', "Fecha")
+                ->setCellValue('C1', "Resultado");
+            foreach ($envio as $fila) {
+                if ($fila['juego'] != $juegoaux) {
+                    $juegoaux = $fila['juego'];
+                    $casilla = 'A' . $numfila;
+                    $objPHPExcel->setActiveSheetIndex(0)
+                        ->setCellValue($casilla, $juegoaux);
+                    $numfila++;
+                }
+                $objPHPExcel->setActiveSheetIndex(0)
+                    ->setCellValue('B' . $numfila, $fila['fecha'])
+                    ->setCellValue('C' . $numfila, $fila['resultado']);
+                $numfila++;
+
+            }
+            $objPHPExcel->getActiveSheet()->setTitle($filename);
+
+            $objPHPExcel->setActiveSheetIndex(0);
+
+            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+            header('Content-Disposition: attachment;filename="' . $filename . '"');
+            header('Cache-Control: max-age=0');
+
+            header('Cache-Control: max-age=1');
+
+            header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+            header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+            header('Cache-Control: cache, must-revalidate');
+            header('Pragma: public');
+            $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+            $objWriter->save('php://output');
+            break;
+
 
     };
 }

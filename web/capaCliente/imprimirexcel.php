@@ -8,7 +8,6 @@ $filename.="_$hoy.xls";
 
 $tabla = $_POST["tabla"];
 
-
 require_once '../vendor/phpexcel/Classes/PHPExcel.php';
 
 print $filename;
