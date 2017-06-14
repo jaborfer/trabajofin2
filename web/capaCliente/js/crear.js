@@ -34,7 +34,7 @@ $(document).ready(function () {
         } else {
             $respuesta.empty();
         }
-    })
+    });
     function comprueba() {
 
         $("#enviar").attr("disabled", !((chkmail && chknombre) && chkpass));

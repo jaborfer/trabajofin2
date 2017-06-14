@@ -9,7 +9,7 @@ $(document).ready(function () {
   var $enviar = $('#enviar');
   var $resultados = $('#resultados');
   var $selector = $("#selector");
-  var $despselector = $("#despselector")
+  var $despselector = $("#despselector");
   var $excel = $("#excel");
   $enviar.attr("disabled", true);
   $loader2.slideUp("fast");

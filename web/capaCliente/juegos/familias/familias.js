@@ -77,7 +77,7 @@ function asignar(casillas) {
             });
             for (var i = 0; i < casillas.length; i++) {
                 var sol=Math.trunc(parseInt(array[i].substring(4,6))/10);
-                var foto= listafotos[array[i]]
+                var foto= listafotos[array[i]];
 
                 $(casillas[i]).attr("data-sol", sol).children(".back").css("background", colores[sol - 1]).children().css('background-image',"url("+ foto+")" ).delay(500);
             }

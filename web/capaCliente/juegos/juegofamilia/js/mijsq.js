@@ -37,7 +37,7 @@ $(document).ready(function () {
             $(ele).addClass('clikeado');
             imgseleccionada = fila1[num];
         })
-    })//fin de la fila1
+    });//fin de la fila1
 
     $('#fila2 img').each(function (num, ele) {
         ele.src = 'c:/fotosjuego/b' + fila2[num] + '.jpg';

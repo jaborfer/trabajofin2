@@ -8,7 +8,7 @@ $(document).ready(function () {
   var $resactualizar = $("#resactualizar");
   var $enviar = $('#enviar');
   $enviar.attr("disabled", true);
-  $miselect.attr("disabled", true)
+  $miselect.attr("disabled", true);
   $loader2.slideUp("fast");
   creaselect();
   $miselect.change(function () {
@@ -21,7 +21,7 @@ $(document).ready(function () {
   $("#standard").click(function () {
     $miselect.attr("disabled", true);
     $enviar.attr("disabled", false);
-  })
+  });
 
   function creaselect() {
     envio = {

@@ -13,7 +13,7 @@ $(document).ready(function () {
   var correcto = true;
   var chkmail = true;
   var chkpass = true;
-  cargadatos()
+  cargadatos();
   $mail.keyup(function () {
     chkmail = ($mail.val().length > 5);
     comprueba();

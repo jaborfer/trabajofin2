@@ -141,17 +141,6 @@ button,
   margin: auto !important;
 }
 
-
-/*#banner {
-  margin-top: 0;
-  width: 100%;
-  height: 200px;
-  background: url(../imagenes/tree.jpg);
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 40px;
-}*/
-
 header h1 {
   font-family: 'Open Sans', sans-serif;
   color: rgba(0, 0, 0, 0.52);
@@ -210,24 +199,6 @@ section.formcenter {
   margin: auto;
   text-align: center;
 }
-
-
-/*.glyphicon-bullhorn {
-  display: inline-flex;
-  justify-content: center;
-  -ms-align-items: center;
-  align-items: center;
-  border: 3px solid orange;
-  border-radius: 100%;
-  width: 30px;
-  height: 30px;
-  color: orange;
-}
-
-#tutorial {
-  display: inline-block;
-  font-weight: bold;
-}*/
 
 .picos {
   border-radius: 0!important;

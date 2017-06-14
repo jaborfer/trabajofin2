@@ -1,11 +1,15 @@
 $(document).ready(function () {
   $("body").fadeIn(1000);
   var monedas = $(".moneda");
+
+  //array con las diferentes monedas
   var valores = [1, 2, 5, 10, 20, 50, 100, 200];
   var fallos = 0;
   var aciertos = 0;
   var total = 0;
   var tiempoin = Date.now();
+
+  //seleccionamos 7 monedas al azar y almacenamos el dinero total que suman estas
   for (var i = 0; i < monedas.length; i++) {
     var num = numAzar();
     $(monedas[i]).attr("data-sol", valores[num]).css({
@@ -14,6 +18,12 @@ $(document).ready(function () {
     });
     total = total + valores[num];
   }
+
+  /*
+   * Al clicar en el botón, comprueba si la cantidad introducida es igual a la almacenada por la suma de monedas anteriormente,
+   * en caso contrario, permite volver a intentarlo
+   *
+   */
   $("[type=button].btn").click(function () {
     var respuesta = parseInt($("#euros").val()) * 100 + parseInt($("#centimos").val());
     if (respuesta == total) {

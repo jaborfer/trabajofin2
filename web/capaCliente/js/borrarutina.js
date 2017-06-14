@@ -12,9 +12,10 @@ $(document).ready(function () {
   $cargando.slideUp("fast");
   $panelaux.toggle("fast");
   crearselectrutina();
+
   $selectrutina.change(function () {
     rutinaseleccionada = $selectrutina.val();
-    if (rutinaseleccionada == "Seleccione la rutina") {
+    if (rutinaseleccionada == "0") {
       $panelaux.hide();
     }
     else {
@@ -32,10 +33,21 @@ $(document).ready(function () {
         , timeout: 4000
         , success: function (listajson) {
           $("#enviar").slideUp();
-          var listarutina = $.parseJSON(listajson);
-          $.each(listarutina, function (index, value) {
+          var listajugadores = $.parseJSON(listajson);
+          var numjugadores=0;
+          $.each(listajugadores, function (index, value) {
             $listado.append("<li class='centadoh'>" + value + "</li>");
+          numjugadores++;
           });
+          console.log(numjugadores);
+          if (numjugadores==0){
+            console.log("entra");
+            $("#mensaje1").empty().append("<p>Ningún jugador tiene esea rutina asignada</p>");
+            $("#mensaje2").empty();
+          } else {
+              $("#mensaje1").empty().append("Los siguientes jugadores tienen asignada esa rutina:");
+              $("#mensaje2").empty().append("Estos jugadores se quedarán sin rutina asociada");
+          }
           $panelaux.show();
         }
         , error: function () {
@@ -49,6 +61,8 @@ $(document).ready(function () {
   });
 
   function crearselectrutina() {
+    $selectrutina.empty();
+      $selectrutina.append("<option value='0'>Seleccione la rutina</option>");
     var envio = {
       "funcion": "listado"
       , "coleccion": "rutina"

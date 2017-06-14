@@ -10,7 +10,7 @@ $(document).ready(function () {
 
   colocaimagenes();
 
-
+  //al clicar hacemos visible la secuencia
   $("#ver").click(function () {
     $marcos.css("visibility", "visible");
     $(this).css("visibility", "hidden");
@@ -29,7 +29,7 @@ $(document).ready(function () {
       $pulsada.toggleClass("seleccionado");
       var aux = $pulsada.attr("src");
 
-      $pulsada.attr("src", $(this).attr("src"))
+      $pulsada.attr("src", $(this).attr("src"));
       $(this).attr("src", aux);
       $pulsada = null;
       if (compruebaordenado()) {
@@ -37,17 +37,18 @@ $(document).ready(function () {
         $('#solucion').slideDown().append("<div>Completado en </div><div  style='font-size: 50px'>" + movimientos + " </div><div>movimientos.</div>");
         localStorage.setItem("puntuacion", "Movimientos: " + movimientos);
         console.log($letrerofin[0]);
-      };
+      }
     }
 
-  })
+  });
 
+  //función que comprueba si las imagenes están colocadas en su sitio
   function compruebaordenado() {
     var $imagenes = $("img");
     var aux = [];
     $imagenes.each(function (index, value) {
       aux.push(value.src)
-    })
+    });
     ordenado = aux.slice();
     return (JSON.stringify(ordenado.sort()) == JSON.stringify(aux))
   }
@@ -57,6 +58,7 @@ $(document).ready(function () {
     return num;
   }
 
+  //función que coloca las imagenes en orden aleatorio
   function colocaimagenes() {
     var orden = [juegoimagenes + 1, juegoimagenes + 2, juegoimagenes + 3, juegoimagenes + 4];
     do {

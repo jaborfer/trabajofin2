@@ -2,7 +2,7 @@
 
   function init() {
     var body = $('#capa');
-    var backgrounds = new Array('url(imagenes/01.jpg)', 'url(imagenes/03.jpg)', 'url(imagenes/04.jpg)','url(imagenes/05.jpg)');
+    var backgrounds = ['url(imagenes/01.jpg)', 'url(imagenes/03.jpg)', 'url(imagenes/04.jpg)','url(imagenes/05.jpg)'];
     var cont = 0;
 
     function nextBackground() {

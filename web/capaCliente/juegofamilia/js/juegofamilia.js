@@ -50,7 +50,7 @@ $(document).ready(function () {
                 });
             }
             , error: function () {
-                console.log("error")
+                console.log("error");
                 $resanadir.empty().append("Error en la comunicación con el servidor");
             }
         });

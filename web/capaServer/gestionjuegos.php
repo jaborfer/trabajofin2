@@ -111,6 +111,7 @@ if (isset($_POST['funcion'])) {
                 if ($comprobacion != $control) {//comprobamos que NO se han "desasignado"correctamente todos los jugadores
                     echo("hubo un error en el proceso, intentelo más tarde  codigo " . $comprobacion);
                 }
+            }
                 if ($control == 0 || $comprobacion == $control) {
                     $condicion = ['nombre' => $rutina, 'usuario' => $usuario];
                     $borra = $mibase->borrar("rutina", $condicion);
@@ -121,7 +122,7 @@ if (isset($_POST['funcion'])) {
                         echo("Error al actualizar la rutina " . $nombre);
                     }
                 }
-            }
+
             break;
         case "traejuegos":
             $jugador = $_SESSION['jugadorseleccionado']; //primero recupero la rutina que tiene asignada ese jugador
@@ -199,6 +200,11 @@ if (isset($_POST['funcion'])) {
             $hoy = date("Y_m_d");
             $jugador = $_POST["jugador"];
             $filename = $jugador . "_". $hoy.".xls";
+        
+            $lastRow = $objPHPExcel->setActiveSheetIndex(0)->getHighestRow();
+            $objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(20);
+            $objPHPExcel->getActiveSheet()->getColumnDimension('B')->setWidth(25);
+            $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setWidth(25);
 
             $coleccion = "puntuacion";
             $jugador = $_POST['jugador'];
@@ -224,14 +230,22 @@ if (isset($_POST['funcion'])) {
             $objPHPExcel->setActiveSheetIndex(0)
                 ->setCellValue('A1', "Juego")
                 ->setCellValue('B1', "Fecha")
-                ->setCellValue('C1', "Resultado");
+                ->setCellValue('C1', "Resultado")
+                ->freezePane('A2');
+            colorCelda("A1:C1", "d6f9ff", $objPHPExcel);
+
             foreach ($envio as $fila) {
                 if ($fila['juego'] != $juegoaux) {
                     $juegoaux = $fila['juego'];
                     $casilla = 'A' . $numfila;
                     $objPHPExcel->setActiveSheetIndex(0)
-                        ->setCellValue($casilla, $juegoaux);
+                        ->setCellValue($casilla, $juegoaux)
+                        ->mergeCells('A'.$numfila.":C".$numfila)
+                        ->getRowDimension($numfila)->setRowHeight(25);
+                    
+                    colorCelda('A'.$numfila.":C".$numfila, "dbb6e6", $objPHPExcel);
                     $numfila++;
+                   
                 }
                 $objPHPExcel->setActiveSheetIndex(0)
                     ->setCellValue('B' . $numfila, $fila['fecha'])
@@ -259,4 +273,24 @@ if (isset($_POST['funcion'])) {
 
 
     };
+}
+
+function colorCelda($celda, $color, $objPHPExcel) {
+    $objPHPExcel->getActiveSheet()->getStyle($celda)->applyFromArray(
+            array(
+                'fill' => array(
+                    'type' => PHPExcel_Style_Fill::FILL_SOLID,
+                    'color' => array('rgb' => $color)
+                )
+            )
+    );
+    $objPHPExcel->getActiveSheet()->getStyle($celda)->applyFromArray(
+            array(
+                'borders' => array(
+                    'allborders' => array(
+                        'style' => PHPExcel_Style_Border::BORDER_THIN,
+                        'color' => array('rgb' => 'f1f1f1')
+                    )
+                )
+    ));
 }

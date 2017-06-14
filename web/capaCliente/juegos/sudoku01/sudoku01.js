@@ -1,7 +1,5 @@
 $(document).ready(function () {
   $("body").fadeIn(1000);
-  //var cuadrados = $(".cuadrado");
-  //var inst1 = $(".alert-info");
   var inst2 = $("#solucion");
   var fallos = 0;
   var aciertos = 0;
@@ -11,8 +9,10 @@ $(document).ready(function () {
   var casilla;
   var exceso = 0;
   var tiempoin = Date.now();
+
   asignarValores(exceso);
   ocultarCasillas(10);
+
   $(".cuadrado").slideDown();
   $(".sel").click(function () {
     if (casillasLlenas() < 16) {
@@ -32,22 +32,34 @@ $(document).ready(function () {
           }
         }
       }
+      //si el sudoku está bien completado
       if (correcto) {
         $(".underesult").slideDown();
         localStorage.setItem("puntuacion", tiempousado + " segundos");
         var tiempofin = Date.now();
         var tiempousado = (tiempofin - tiempoin) / 1000 + " segundos.";
         inst2.slideDown().append("<div>Has tardado</div><div style='font-size: 50px'> " + tiempousado + "</div><div>segundos</div>");
+
+        //almacena el tiempo empleado en resolverlo
         localStorage.setItem("puntuacion", tiempousado);
+
+        //si no
       } else {
         $("#underesult").slideDown();
         inst2.slideDown().append("<div>Incorrecto</div> <div>la próxima vez será </div>");
+
+        //almacena "no resulto"
         localStorage.setItem("puntuacion", "no resuelto");
       }
     }
   });
 });
 
+/*
+ *
+ * comprueba que tanto en su fila, como en su columna, como en su sección, no haya otro número igual 
+ *
+ */
 function comprobarCasilla(fila, colm, numero) {
   cond = true;
   var sol = $("[data-row=" + fila + "][data-col=" + colm + "]").parent().attr("data-sol");
@@ -75,6 +87,7 @@ function numAzar() {
   return num;
 }
 
+//borra num casillas, variando este número en función de la dificultad que se le de al juego
 function ocultarCasillas(num) {
   for (var c = 0; c < num; c++) {
     cond = false;
@@ -91,6 +104,7 @@ function ocultarCasillas(num) {
   }
 }
 
+//comprueba si están todas las casillas con un número en su interior
 function casillasLlenas() {
   var llenos = 0;
   $(".subsub").each(function () {
@@ -99,13 +113,19 @@ function casillasLlenas() {
   return llenos;
 }
 
+/*
+ * Asigna numeros aleatorios, comprobando a su vez que complan con las reglas, se le aplica un parametro llamado "exceso" para un posible caso en el que no existan combinaciones posibles, vuelva a empezar
+ *
+ * comprueba que tanto en su fila, como en su columna, como en su sección, no haya otro número igual 
+ *
+ */
 function asignarValores(exceso) {
   var cond;
   for (var fila = 1; fila < 5; fila++) {
     for (var colm = 1; colm < 5; colm++) {
       cond = false;
       while (!cond) {
-        exceso++
+        exceso++;
         console.log(exceso);
         cond = true;
         var numero = numAzar();

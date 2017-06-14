@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
   $("body").fadeIn(1000);
   var cuadrados = $(".cuadrado");
   var unaVez = true;
@@ -6,23 +7,42 @@ $(document).ready(function () {
   var inst2 = $(".alert-danger");
   var fallos = 0;
   var aciertos = 0;
+
+  /*
+   * De cada cuadrado, encendemos un subcuadrado al azar
+   *
+   */
   for (var i = 0; i < cuadrados.length; i++) {
     var num = numAzar();
     var subc = $(cuadrados[i]).children()[num];
     $(cuadrados[i]).attr("data-sol", num + 1);
     $(subc).addClass("on");
   }
+
   $("#ver").click(function () {
+    /*
+     * unaVez=true => aun no hemos visto la secuencia de cuadrados encendidos, 
+     * pulsamos y la veremos por primera y unica vez
+     *
+     */
     if (unaVez) {
       cuadrados.css("visibility", "visible");
       unaVez = false;
+
+      //deshabilitamos el boton
       $(this).attr("disabled", true);
       setTimeout(function () {
         inst1.css("visibility", "hidden");
-        //cuadrados.css("visibility", "hidden");
         cuadrados.addClass("sel");
         cuadrados.children().removeClass("on");
         inst2.css("visibility", "visible");
+
+        /*
+         * al clicar en las secciones, comprobará si esa era la sección que estaba encendida
+         * recurriendo al atributo data-sol del cuadrado padre que lo contiene.
+         * en función de esto, mostrará si nos hemos equivocado o no.
+         *
+         */
         $(".sel").children().click(function () {
           var numsub = $(this).attr("data-sol");
           var numcua = $(this).parent().attr("data-sol");
