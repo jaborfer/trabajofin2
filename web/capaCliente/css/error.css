@@ -1,0 +1,38 @@
+#errores {
+  width: 95vw;
+  height: 100%;
+  margin-top: -30px;
+}
+
+#errores li {
+  background: white;
+  margin: 5px;
+  box-sizing: border-box;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  margin-left: 40px;
+  margin-right: 40px;
+  text-align: left;
+}
+
+.alert-warning {
+  background: rgb(231, 163, 105) !important;
+}
+
+.alert-success {
+  background: rgb(68, 195, 83) !important;
+}
+
+li.alert {
+  border-radius: 0px !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) !important;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  border: 0px !important;
+  text-align: center;
+}
+
+#errores li span {
+  margin-right: 20px;
+}

@@ -10,11 +10,12 @@ $(document).ready(function () {
   var $aceptar = $("#aceptar");
   $boton.attr("disabled", true);
   $loader2.slideUp("fast");
-  $formulario.hide();
+  $formulario.slideUp();
   creaselect();
   $miselect.change(function () {
-    $formulario.show();
+    $formulario.slideDown();
     $boton.attr("disabled", true);
+    $resborrar.empty();
   });
   $("#aceptar").click(function () {
     $boton.attr("disabled", !$aceptar.prop('checked'));
@@ -52,7 +53,7 @@ $(document).ready(function () {
       timeout: 4000,
       success: function ($respuesta) {
         if ($respuesta == "ok") {
-          $formulario.hide();
+          $formulario.slideUp();
           $resborrar.empty().append("Usuario borrado correctamente");
           $miselect.empty();
           creaselect();

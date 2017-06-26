@@ -17,6 +17,10 @@ $(document).ready(function () {
   $loader.slideUp("fast");
   $loader2.slideUp("fast");
   $enviar.attr("disabled", true);
+
+  $resanadir.slideUp();
+  $listado.slideUp();
+
   $notas.focus(function () {
     $notas.text("");
   });
@@ -90,16 +94,16 @@ $(document).ready(function () {
         if ($respuesta == "ok") {
           $divformulario.toggle("fast");
           var valorJugador = $("#jugador").val();
-          $resanadir.empty().append(valorJugador + " creado correctamente");
+          $resanadir.empty().append(valorJugador + " creado correctamente").slideDown();
           listadojugadores();
 
         } else {
-          $resanadir.empty().append($respuesta);
+          $resanadir.empty().append($respuesta).slideDown();
         }
 
       },
       error: function () {
-        $resanadir.empty().append("Error en la carga AjAx, por favor recargue la página e intentelo de nuevo")
+        $resanadir.empty().append("Error en la carga AjAx, por favor recargue la página e intentelo de nuevo").slideDown();
       },
       complete: function () {
         $loader2.slideUp("fast");
@@ -122,7 +126,7 @@ $(document).ready(function () {
         var lista = $.parseJSON(listajson);
         console.log(lista);
 
-        $listado.append('<p>Los jugadores creados son:</p>');
+        $listado.append('<p>Los jugadores creados son:</p>').slideDown();
         $listado.append('<ul style="list-style-type: none;">');
         $.each(lista, function (index, value) {
           $listado.append("<li style='text-align: center; list-style-type: none;'>" + value + "</li>");
